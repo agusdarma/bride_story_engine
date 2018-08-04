@@ -10,26 +10,33 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 	
-	<bean id="userRegistration" class="com.myproject.parking.trx.logic.security.UserRegistration"/>
-	<bean id="userActivate" class="com.myproject.parking.trx.logic.security.ActivateUser"/>
-	<bean id="forgetPassword" class="com.myproject.parking.trx.logic.security.ForgetPassword"/>
-	<bean id="loginUser" class="com.myproject.parking.trx.logic.security.LoginUser"/>
-	<bean id="logoutUser" class="com.myproject.parking.trx.logic.security.LogoutUser"/>	
-	<bean id="changePassword" class="com.myproject.parking.trx.logic.security.ChangePassword"/>
+	<!--<bean id="userRegistration" class="com.myproject.bride.trx.logic.security.UserRegistration"/>
+	<bean id="userActivate" class="com.myproject.bride.trx.logic.security.ActivateUser"/>
+	<bean id="forgetPassword" class="com.myproject.bride.trx.logic.security.ForgetPassword"/>
+	<bean id="loginUser" class="com.myproject.bride.trx.logic.security.LoginUser"/>
+	<bean id="logoutUser" class="com.myproject.bride.trx.logic.security.LogoutUser"/>	
+	<bean id="changePassword" class="com.myproject.bride.trx.logic.security.ChangePassword"/>
+	-->
 	<!-- Payment Module -->
-	<bean id="receiveTrxFromVeriTrans" class="com.myproject.parking.trx.payment.ReceiveTransactionFromVeriTrans"/>
-	<bean id="charge" class="com.myproject.parking.trx.payment.ChargeProcess"/>
-	<bean id="payment_notif" class="com.myproject.parking.trx.payment.PaymentNotifProcess"/>
-	<bean id="confirm" class="com.myproject.parking.trx.payment.ConfirmProcess"/>
+	<!--
+	<bean id="receiveTrxFromVeriTrans" class="com.myproject.bride.trx.payment.ReceiveTransactionFromVeriTrans"/>
+	<bean id="charge" class="com.myproject.bride.trx.payment.ChargeProcess"/>
+	<bean id="payment_notif" class="com.myproject.bride.trx.payment.PaymentNotifProcess"/>
+	<bean id="confirm" class="com.myproject.bride.trx.payment.ConfirmProcess"/>
+	-->
 	<!-- Transaction Module -->
-	<bean id="listMall" class="com.myproject.parking.trx.logic.transaction.ListMall"/>
-	<bean id="refreshCacheMall" class="com.myproject.parking.trx.logic.transaction.RefreshCacheMall"/>
-	<bean id="findSLotsByMall" class="com.myproject.parking.trx.logic.transaction.FindSlotByMall"/>
-	<bean id="checkOrderAllowPay" class="com.myproject.parking.trx.logic.transaction.CheckOrderAllowPay"/>
-	<bean id="checkBookingCode" class="com.myproject.parking.trx.logic.transaction.CheckInAllow"/>
-	<bean id="confirmCodeBooking" class="com.myproject.parking.trx.logic.transaction.CheckInConfirm"/>
-	<bean id="historyBooking" class="com.myproject.parking.trx.logic.transaction.ListHistoryBooking"/>
+	<!--
+	<bean id="listMall" class="com.myproject.bride.trx.logic.transaction.ListMall"/>
+	<bean id="refreshCacheMall" class="com.myproject.bride.trx.logic.transaction.RefreshCacheMall"/>
+	<bean id="findSLotsByMall" class="com.myproject.bride.trx.logic.transaction.FindSlotByMall"/>
+	<bean id="checkOrderAllowPay" class="com.myproject.bride.trx.logic.transaction.CheckOrderAllowPay"/>
+	<bean id="checkBookingCode" class="com.myproject.bride.trx.logic.transaction.CheckInAllow"/>
+	<bean id="confirmCodeBooking" class="com.myproject.bride.trx.logic.transaction.CheckInConfirm"/>
+	<bean id="historyBooking" class="com.myproject.bride.trx.logic.transaction.ListHistoryBooking"/>
+	-->
 	<!-- Release Slot Parking Module -->
-	<bean id="releaseSlotParking" class="com.myproject.parking.trx.logic.transaction.ReleaseSlotParking"/>
+	<!--
+	<bean id="releaseSlotParking" class="com.myproject.bride.trx.logic.transaction.ReleaseSlotParking"/>
+	-->
 	
 </beans>

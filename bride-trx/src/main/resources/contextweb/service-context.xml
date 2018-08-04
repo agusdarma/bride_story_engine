@@ -15,16 +15,16 @@
 	<!-- (beware that this does not enable mapper scanning!) -->
 	<context:property-placeholder location="classpath:*.properties" />
 	
-	<context:component-scan base-package="com.myproject.parking.lib.service" />	
+	<context:component-scan base-package="com.myproject.bride.lib.service" />	
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="parking" />
 	</bean>
 	
-	<bean id="versionData" class="com.myproject.parking.trx.data.VersionData" 
+	<bean id="versionData" class="com.myproject.bride.trx.data.VersionData" 
 			init-method="printInfo" />
 	
-	<bean id="notifEmailSender" class="com.myproject.parking.lib.utils.EmailSender">
+	<bean id="notifEmailSender" class="com.myproject.bride.lib.utils.EmailSender">
 		<property name="smtpHost" value="${smtpHost}" /> 
 		<property name="smtpPort" value="${smtpPort}" />
 		<property name="smtpUserName" value="${smtpUserName}" />
@@ -34,42 +34,46 @@
 		<property name="defaultFrom" value="${defaultFrom}" />
 		<!-- <property name="htmlTemplate" value="${htmlTemplate.data}" /> -->
 	</bean>
-	
-	<bean id="veriTransManagerService" class="com.myproject.parking.lib.service.VeriTransManagerService">
+	<!--
+	<bean id="veriTransManagerService" class="com.myproject.bride.lib.service.VeriTransManagerService">
 		<property name="clientKey" value="${clientKey}" /> 
 		<property name="serverKey" value="${serverKey}" />
 		<property name="environment" value="${environment}" />
 		<property name="connectionPoolSize" value="${connectionPoolSize}" />
 	</bean>
-	
-	<bean id="httpClientService" class="com.myproject.parking.lib.service.HttpClientService" init-method="start"> 
+	-->
+	<bean id="httpClientService" class="com.myproject.bride.lib.service.HttpClientService" init-method="start"> 
 		<property name="serverKey" value="${serverKey}" />
 		<property name="urlMidtrans" value="${urlMidtrans}" />
 		<property name="baseurlMidtransAPI" value="${baseurlMidtransAPI}" />
 	</bean>
+	<!--
+	<bean id="transactionLogFacade" class="com.myproject.bride.lib.log.TransactionLogFacade"/>
+	<bean id="transactionNotifLogFacade" class="com.myproject.bride.lib.log.TransactionNotifLogFacade"/>
 	
-	<bean id="transactionLogFacade" class="com.myproject.parking.lib.log.TransactionLogFacade"/>
-	<bean id="transactionNotifLogFacade" class="com.myproject.parking.lib.log.TransactionNotifLogFacade"/>
-	
-	<bean id="databaseAsyncUtil" class="com.myproject.parking.lib.utils.DatabaseAsyncUtil" init-method="start" destroy-method="stop" />
-	
-	<bean id="logicFactory" class="com.myproject.parking.trx.logic.LogicFactory">
+	<bean id="databaseAsyncUtil" class="com.myproject.bride.lib.utils.DatabaseAsyncUtil" init-method="start" destroy-method="stop" />
+	--
+	<bean id="logicFactory" class="com.myproject.bride.trx.logic.LogicFactory">
 		<property name="logic" >
 		    <map>
 		        <!-- Security Module  -->
-		        <entry key="/userRegistration" value-ref="userRegistration"></entry>
+		        <!--<entry key="/userRegistration" value-ref="userRegistration"></entry>
 		        <entry key="/userActivate" value-ref="userActivate"></entry>
 		        <entry key="/forgetPassword" value-ref="forgetPassword"></entry>
 		        <entry key="/loginUser" value-ref="loginUser"></entry>
 		        <entry key="/logoutUser" value-ref="logoutUser"></entry>
 		        <entry key="/changePassword" value-ref="changePassword"></entry>
 		        <entry key="/logoutUser" value-ref="logoutUser"></entry>
+		        -->
 		        <!-- Payment Module -->		        		       
+		        <!--
 		        <entry key="/receiveTrxFromVeriTrans" value-ref="receiveTrxFromVeriTrans"></entry>
 		        <entry key="/charge" value-ref="charge"></entry>
 		        <entry key="/payment_notif" value-ref="payment_notif"></entry>
 		        <entry key="/confirm" value-ref="confirm"></entry>
+		        -->
 		        <!-- Transaction Module -->
+		        <!--
 		        <entry key="/listMall" value-ref="listMall"></entry>
 		        <entry key="/refreshCacheMall" value-ref="refreshCacheMall"></entry>
 		        <entry key="/findSLotsByMall" value-ref="findSLotsByMall"></entry>
@@ -77,15 +81,18 @@
 		        <entry key="/checkBookingCode" value-ref="checkBookingCode"></entry>
 		        <entry key="/confirmCodeBooking" value-ref="confirmCodeBooking"></entry>
 		        <entry key="/historyBooking" value-ref="historyBooking"></entry>
+		        -->
 		        <!-- Release Slot Parking -->
+		        <!--
 		        <entry key="/releaseSlotParking" value-ref="releaseSlotParking"></entry>
+		        -->
 		    </map>
 		</property>
 	</bean>
 	
 	<!-- =========================== Scheduler Release Booking Non Payment =========================== -->
 	
-	<bean id="autoReleaseBookingService" class="com.myproject.parking.lib.service.scheduler.AutoReleaseBookingService"
+	<!--<bean id="autoReleaseBookingService" class="com.myproject.bride.lib.service.scheduler.AutoReleaseBookingService"
 	    init-method="release" />
 	 
 	<bean id="autoReleaseBookingJob"
@@ -99,12 +106,13 @@
 		<property name="jobDetail" ref="autoReleaseBookingJob" />
 		<property name="cronExpression" value=" 0 0/15 * * * ? " />
 	</bean>
+	-->
 	
 	<!-- =========================== Scheduler =========================== -->
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="autoReleaseBookingTrigger" />
+				<!--  <ref bean="autoReleaseBookingTrigger" />-->
 			</list>
 		</property>
 	</bean>

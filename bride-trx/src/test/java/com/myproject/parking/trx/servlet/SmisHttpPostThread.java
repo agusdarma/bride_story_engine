@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myproject.parking.lib.utils.CommonUtil;
+import com.myproject.bride.lib.utils.CommonUtil;
 
 public class SmisHttpPostThread extends Thread {
 	private static final Logger LOG = LoggerFactory.getLogger(SmisHttpPostThread.class);

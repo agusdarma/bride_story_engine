@@ -24,18 +24,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myproject.parking.lib.data.Address;
-import com.myproject.parking.lib.data.ChangePasswordVO;
-import com.myproject.parking.lib.data.CustomerDetail;
-import com.myproject.parking.lib.data.ForgetPasswordVO;
-import com.myproject.parking.lib.data.LoginData;
-import com.myproject.parking.lib.data.Product;
-import com.myproject.parking.lib.data.SlotsParkingVO;
-import com.myproject.parking.lib.data.TransactionDetails;
-import com.myproject.parking.lib.data.VeriTransVO;
-import com.myproject.parking.lib.entity.UserData;
-import com.myproject.parking.lib.utils.CipherUtil;
-import com.myproject.parking.lib.utils.CommonUtil;
+import com.myproject.bride.lib.data.Address;
+import com.myproject.bride.lib.data.ChangePasswordVO;
+import com.myproject.bride.lib.data.CustomerDetail;
+import com.myproject.bride.lib.data.ForgetPasswordVO;
+import com.myproject.bride.lib.data.LoginData;
+import com.myproject.bride.lib.data.Product;
+import com.myproject.bride.lib.data.SlotsParkingVO;
+import com.myproject.bride.lib.data.TransactionDetails;
+import com.myproject.bride.lib.data.VeriTransVO;
+import com.myproject.bride.lib.entity.UserData;
+import com.myproject.bride.lib.utils.CipherUtil;
+import com.myproject.bride.lib.utils.CommonUtil;
 
 
 @RunWith(MockitoJUnitRunner.class)
