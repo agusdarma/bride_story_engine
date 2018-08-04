@@ -29,11 +29,14 @@
 		
 		
 		<!-- Veritrans RestFull API -->	
+		<!--
 		<dependency>
 	        <groupId>id.co.veritrans</groupId>
 	        <artifactId>vt-java-client</artifactId>
 	        <version>1.0.6</version>
 	    </dependency>
+	    -->
+	    
 		
 		<!-- For Convert to / from JSON -->
 		<!-- <dependency>
