@@ -9,6 +9,74 @@ Database: MySQL 5.1
 
 -- Create tables section -------------------------------------------------
 
+CREATE TABLE category
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  category_name Varchar(128),
+  selected Int,
+ PRIMARY KEY (id)
+)
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'All Categories'
+  ,1
+);
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Bridal'
+  ,0
+);
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Catering'
+  ,0
+);
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Dance & Choreography'
+  ,0
+);
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Decoration & Lightning'
+  ,0
+);
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Dress & Attire'
+  ,0
+);
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Entertainment ( MC )'
+  ,0
+);
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Entertainment ( DJ )'
+  ,0
+);
+
 -- Table User
 
 CREATE TABLE User

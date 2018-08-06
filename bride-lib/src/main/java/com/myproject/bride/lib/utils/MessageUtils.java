@@ -16,13 +16,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.myproject.bride.lib.data.MessageVO;
 import com.myproject.bride.lib.service.BrideEngineException;
 
+
 public class MessageUtils {
 	private static final Logger LOG = LoggerFactory.getLogger(MessageUtils.class);
 	private static String generateMessage(MessageVO messageVO,ObjectMapper mapper){
 		String result = "";
 		try {
 			result = mapper.writeValueAsString(messageVO);
-			result = CipherUtil.encryptTripleDES(result, CipherUtil.PASSWORD);
+//			result = CipherUtil.encryptTripleDES(result, CipherUtil.PASSWORD);
 		} catch (JsonGenerationException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {

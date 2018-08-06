@@ -44,7 +44,10 @@
 	<bean id="logicFactory" class="com.myproject.bride.trx.logic.LogicFactory">
 		<property name="logic" >
 		    <map>
-		        <!-- Security Module  -->
+		        <!-- Parameter Module  -->
+		        <entry key="/cat" value-ref="masterCategory"></entry>
+		        
+		        
 		        <!--<entry key="/userRegistration" value-ref="userRegistration"></entry>
 		        <entry key="/userActivate" value-ref="userActivate"></entry>
 		        <entry key="/forgetPassword" value-ref="forgetPassword"></entry>

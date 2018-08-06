@@ -32,7 +32,7 @@ public class MasterCategory implements BaseQueryLogic {
 			String x = mapper.writeValueAsString(listCategories);
 			result = MessageUtils.handleSuccess(x, mapper);
 		} catch (BrideEngineException e) {
-			LOG.error("ParkingEngineException when processing " + pathInfo, e);
+			LOG.error("BrideEngineException when processing " + pathInfo, e);
 			result = MessageUtils.handleException(e, "", mapper);
 		} catch (Exception e) {
 			LOG.error("Unexpected exception when processing " + pathInfo, e);

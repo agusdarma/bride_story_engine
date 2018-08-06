@@ -21,7 +21,7 @@ import org.slf4j.LoggerFactory;
 
 public class CipherUtil {
 	private static final String INTERNAL_PASSWORD_TOKEN = "124A7BDF5C701B69B4BACD05F1538EA2";
-	public static final String PASSWORD = "PARKING_ONLINE124A7BDF5C701B69B4BACD05F1538EA2";
+	public static final String PASSWORD = "BRIDE124A7BDF5C701B69B4BACD05F1538EA2";
 	private static final int MAX_LENGTH_3DES_KEY_SMARTPHONE = 24;
 	private static final Logger LOG = LoggerFactory.getLogger(CipherUtil.class);
 	
