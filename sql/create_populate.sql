@@ -15,7 +15,7 @@ CREATE TABLE category
   category_name Varchar(128),
   selected Int,
  PRIMARY KEY (id)
-)
+);
 
 INSERT INTO category(
    category_name
@@ -74,6 +74,86 @@ INSERT INTO category(
   ,selected
 ) VALUES (
   'Entertainment ( DJ )'
+  ,0
+);
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Aksesori Pernikahan'
+  ,0
+);
+
+INSERT INTO category(
+   category_name
+  ,selected
+) VALUES (
+  'Bulan Madu'
+  ,0
+);
+
+CREATE TABLE country
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  country_name Varchar(128),
+  selected Int,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Indonesia'
+  ,1
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'All Countries'
+  ,0
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Albania'
+  ,0
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Angola'
+  ,0
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Antigua'
+  ,0
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Argentina'
+  ,0
+);
+
+INSERT INTO country(
+   country_name
+  ,selected
+) VALUES (
+  'Belgium'
   ,0
 );
 

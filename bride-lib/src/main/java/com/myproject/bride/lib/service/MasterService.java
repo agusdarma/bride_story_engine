@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myproject.bride.lib.entity.Category;
+import com.myproject.bride.lib.entity.Country;
 import com.myproject.bride.lib.mapper.CategoryMapper;
+import com.myproject.bride.lib.mapper.CountryMapper;
 
 @Service
 public class MasterService {
@@ -18,10 +20,20 @@ public class MasterService {
 	@Autowired
 	private CategoryMapper categoryMapper;
 
+	@Autowired
+	private CountryMapper countryMapper;
+
 	public List<Category> getListCategories() throws BrideEngineException {
 		LOG.debug("process GetListCategories");
-		List<Category> listCategories = categoryMapper.getListCategories();		
+		List<Category> listCategories = categoryMapper.getListCategories();
 		return listCategories;
+
+	}
+
+	public List<Country> getListCountries() throws BrideEngineException {
+		LOG.debug("process GetListCountries");
+		List<Country> listCountries = countryMapper.getListCountries();
+		return listCountries;
 
 	}
 

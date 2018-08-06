@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 		
 	<bean id="masterCategory" class="com.myproject.bride.trx.logic.parameter.MasterCategory"/>
+	<bean id="masterCountry" class="com.myproject.bride.trx.logic.parameter.MasterCountry"/>
 	
 	<!--<bean id="userRegistration" class="com.myproject.bride.trx.logic.security.UserRegistration"/>
 	<bean id="userActivate" class="com.myproject.bride.trx.logic.security.ActivateUser"/>

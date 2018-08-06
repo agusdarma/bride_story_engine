@@ -46,6 +46,7 @@
 		    <map>
 		        <!-- Parameter Module  -->
 		        <entry key="/cat" value-ref="masterCategory"></entry>
+		        <entry key="/country" value-ref="masterCountry"></entry>
 		        
 		        
 		        <!--<entry key="/userRegistration" value-ref="userRegistration"></entry>
