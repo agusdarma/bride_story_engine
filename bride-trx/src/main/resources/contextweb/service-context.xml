@@ -34,25 +34,13 @@
 		<property name="defaultFrom" value="${defaultFrom}" />
 		<!-- <property name="htmlTemplate" value="${htmlTemplate.data}" /> -->
 	</bean>
-	<!--
-	<bean id="veriTransManagerService" class="com.myproject.bride.lib.service.VeriTransManagerService">
-		<property name="clientKey" value="${clientKey}" /> 
-		<property name="serverKey" value="${serverKey}" />
-		<property name="environment" value="${environment}" />
-		<property name="connectionPoolSize" value="${connectionPoolSize}" />
-	</bean>
-	-->
+
 	<bean id="httpClientService" class="com.myproject.bride.lib.service.HttpClientService" init-method="start"> 
 		<property name="serverKey" value="${serverKey}" />
 		<property name="urlMidtrans" value="${urlMidtrans}" />
 		<property name="baseurlMidtransAPI" value="${baseurlMidtransAPI}" />
-	</bean>
-	<!--
-	<bean id="transactionLogFacade" class="com.myproject.bride.lib.log.TransactionLogFacade"/>
-	<bean id="transactionNotifLogFacade" class="com.myproject.bride.lib.log.TransactionNotifLogFacade"/>
+	</bean>	
 	
-	<bean id="databaseAsyncUtil" class="com.myproject.bride.lib.utils.DatabaseAsyncUtil" init-method="start" destroy-method="stop" />
-	--
 	<bean id="logicFactory" class="com.myproject.bride.trx.logic.LogicFactory">
 		<property name="logic" >
 		    <map>
@@ -90,31 +78,5 @@
 		</property>
 	</bean>
 	
-	<!-- =========================== Scheduler Release Booking Non Payment =========================== -->
-	
-	<!--<bean id="autoReleaseBookingService" class="com.myproject.bride.lib.service.scheduler.AutoReleaseBookingService"
-	    init-method="release" />
-	 
-	<bean id="autoReleaseBookingJob"
-		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="autoReleaseBookingService" />
-		<property name="targetMethod" value="release" />
-		<property name="concurrent" value="false" />
-	</bean>
-	
-	<bean id="autoReleaseBookingTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-		<property name="jobDetail" ref="autoReleaseBookingJob" />
-		<property name="cronExpression" value=" 0 0/15 * * * ? " />
-	</bean>
-	-->
-	
-	<!-- =========================== Scheduler =========================== -->
-	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-		<property name="triggers">
-			<list>
-				<!--  <ref bean="autoReleaseBookingTrigger" />-->
-			</list>
-		</property>
-	</bean>
 	
 </beans>
