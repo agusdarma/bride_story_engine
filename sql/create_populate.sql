@@ -157,6 +157,55 @@ INSERT INTO country(
   ,0
 );
 
+CREATE TABLE city
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  city_name Varchar(128),
+  selected Int,
+  countryId Int,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO city(
+   city_name
+  ,selected
+  ,countryId
+) VALUES (
+  'Jakarta'
+  ,1
+  ,1
+);
+
+INSERT INTO city(
+   city_name
+  ,selected
+  ,countryId
+) VALUES (
+  'All Cities'
+  ,0
+  ,0
+);
+
+INSERT INTO city(
+   city_name
+  ,selected
+  ,countryId
+) VALUES (
+  'Bali'
+  ,0
+  ,1
+);
+
+INSERT INTO city(
+   city_name
+  ,selected
+  ,countryId
+) VALUES (
+  'Medan'
+  ,0
+  ,1
+);
+
 -- Table User
 
 CREATE TABLE User

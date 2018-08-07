@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myproject.bride.lib.entity.Category;
+import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
 import com.myproject.bride.lib.mapper.CategoryMapper;
+import com.myproject.bride.lib.mapper.CityMapper;
 import com.myproject.bride.lib.mapper.CountryMapper;
 
 @Service
@@ -22,6 +24,9 @@ public class MasterService {
 
 	@Autowired
 	private CountryMapper countryMapper;
+	
+	@Autowired
+	private CityMapper cityMapper;
 
 	public List<Category> getListCategories() throws BrideEngineException {
 		LOG.debug("process GetListCategories");
@@ -34,6 +39,21 @@ public class MasterService {
 		LOG.debug("process GetListCountries");
 		List<Country> listCountries = countryMapper.getListCountries();
 		return listCountries;
+
+	}
+	
+	public List<Country> getListCountryWithParam(String param) throws BrideEngineException {
+		LOG.debug("process GetListCountries with param " + param);
+		param = param.replace("\n", "").replace("\r", "");
+		List<Country> listCountries = countryMapper.getListCountryWithParam(param);
+		return listCountries;
+
+	}
+	
+	public List<City> getListCityByCountry(int countryId) throws BrideEngineException {
+		LOG.debug("process getListCityByCountry with countryId " + countryId);
+		List<City> listCities = cityMapper.getListCityByCountry(countryId);
+		return listCities;
 
 	}
 

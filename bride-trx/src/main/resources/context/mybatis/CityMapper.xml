@@ -10,17 +10,16 @@
 	OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
 	the specific language governing permissions and limitations under the License. -->
 
-<mapper namespace="com.myproject.bride.lib.mapper.CountryMapper">
-
-	<select id="getListCountries" resultType="Country">
-		select id as countryId, country_name as countryName, selected as selected from country
-		order by country_name asc
-	</select>
+<mapper namespace="com.myproject.bride.lib.mapper.CityMapper">
 	
-	<select id="getListCountryWithParam" parameterType="java.util.Map" resultType="Country">
-		select id as countryId, country_name as countryName, selected as selected from country
-		where upper(country_name) LIKE CONCAT('%',upper(#{ss}), '%')
-		order by country_name asc
+	<select id="getListCityByCountry" parameterType="java.util.Map" resultType="City">
+		select city_name as cityName, selected as selected, countryId as countryId 
+		from city
+		where 1 = 1
+		<if test="countryId > 0 ">
+				and countryId = #{countryId}
+		</if>
+		order by city_name asc
 	</select>
 
 </mapper>

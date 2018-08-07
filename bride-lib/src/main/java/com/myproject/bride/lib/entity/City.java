@@ -4,18 +4,10 @@ import java.io.Serializable;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class Country implements Serializable {
+public class City implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String countryName;
+	private String cityName;
 	private int countryId;
-	public int getCountryId() {
-		return countryId;
-	}
-
-	public void setCountryId(int countryId) {
-		this.countryId = countryId;
-	}
-
 	private boolean selected;
 
 	@Override
@@ -23,12 +15,20 @@ public class Country implements Serializable {
 		return ReflectionToStringBuilder.toString(this);
 	}
 
-	public String getCountryName() {
-		return countryName;
+	public String getCityName() {
+		return cityName;
 	}
 
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+
+	public int getCountryId() {
+		return countryId;
+	}
+
+	public void setCountryId(int countryId) {
+		this.countryId = countryId;
 	}
 
 	public boolean isSelected() {
@@ -39,6 +39,7 @@ public class Country implements Serializable {
 		this.selected = selected;
 	}
 
+	
 	
 
 }

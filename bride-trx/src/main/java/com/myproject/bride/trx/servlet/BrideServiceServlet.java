@@ -75,9 +75,9 @@ public class BrideServiceServlet extends HttpServlet {
 		}
 		reader.close();
 		String data = sb.toString();		
-		if(!"/charge".equalsIgnoreCase(pathInfo)&&!"/payment_notif".equalsIgnoreCase(pathInfo)){
-			data = CipherUtil.decryptTripleDES(data, CipherUtil.PASSWORD);
-		}		
+//		if(!"/charge".equalsIgnoreCase(pathInfo)&&!"/payment_notif".equalsIgnoreCase(pathInfo)){
+//			data = CipherUtil.decryptTripleDES(data, CipherUtil.PASSWORD);
+//		}		
 		LOG.debug("RequestData: {}", new String[] { data });	
 	
 		String respData = logic.process(request,response,data, mapper, pathInfo);

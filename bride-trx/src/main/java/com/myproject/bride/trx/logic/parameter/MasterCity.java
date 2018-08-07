@@ -12,15 +12,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.service.BrideEngineException;
 import com.myproject.bride.lib.service.MasterService;
 import com.myproject.bride.lib.utils.MessageUtils;
 import com.myproject.bride.trx.logic.BaseQueryLogic;
 
-public class MasterCountry implements BaseQueryLogic {
+public class MasterCity implements BaseQueryLogic {
 
-	private static final Logger LOG = LoggerFactory.getLogger(MasterCountry.class);
+	private static final Logger LOG = LoggerFactory.getLogger(MasterCity.class);
 	
 	@Autowired
 	private MasterService masterService;
@@ -30,13 +30,15 @@ public class MasterCountry implements BaseQueryLogic {
 		LOG.debug("Start process Query :"+pathInfo);		
 		String result = "";
 		try {						
-			List<Country> listCountries = new ArrayList<Country>();
-			if(StringUtils.isEmpty(data)){
-				listCountries =  masterService.getListCountries();	
-			}else{
-				listCountries =  masterService.getListCountryWithParam(data);
-			}			
-			String x = mapper.writeValueAsString(listCountries);
+			List<City> listCities = new ArrayList<City>();
+			int countryId = 0;
+			try {
+				countryId = Integer.parseInt(data);
+			} catch (Exception e) {
+				// berarti semua country
+			}
+			listCities =  masterService.getListCityByCountry(countryId);	
+			String x = mapper.writeValueAsString(listCities);
 			result = MessageUtils.handleSuccess(x, mapper);
 		} catch (BrideEngineException e) {
 			LOG.error("BrideEngineException when processing " + pathInfo, e);
