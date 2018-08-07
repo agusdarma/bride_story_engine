@@ -70,7 +70,8 @@ public class BrideServiceServlet extends HttpServlet {
 		StringBuilder sb = new StringBuilder();
 		String line = reader.readLine();
 		while (line != null) {
-			sb.append(line + "\n");
+//			sb.append(line + "\n");
+			sb.append(line);
 			line = reader.readLine();
 		}
 		reader.close();

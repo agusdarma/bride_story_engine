@@ -13,7 +13,7 @@
 <mapper namespace="com.myproject.bride.lib.mapper.CategoryMapper">
 
 	<select id="getListCategories" resultType="Category">
-		select category_name as categoryName, selected as selected from category
+		select id as categoryId,category_name as categoryName, selected as selected from category
 		order by category_name asc
 	</select>
 
