@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
@@ -50,9 +51,9 @@ public class MasterService {
 
 	}
 	
-	public List<City> getListCityByCountry(int countryId) throws BrideEngineException {
-		LOG.debug("process getListCityByCountry with countryId " + countryId);
-		List<City> listCities = cityMapper.getListCityByCountry(countryId);
+	public List<City> getListCityByCountry(CityParamVO cityParamVO) throws BrideEngineException {
+		LOG.debug("process getListCityByCountry with cityParamVO " + cityParamVO);
+		List<City> listCities = cityMapper.getListCityByCountry(cityParamVO);
 		return listCities;
 
 	}

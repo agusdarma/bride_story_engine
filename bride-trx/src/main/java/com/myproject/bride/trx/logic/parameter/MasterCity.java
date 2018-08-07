@@ -6,12 +6,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.service.BrideEngineException;
 import com.myproject.bride.lib.service.MasterService;
@@ -31,13 +31,9 @@ public class MasterCity implements BaseQueryLogic {
 		String result = "";
 		try {						
 			List<City> listCities = new ArrayList<City>();
-			int countryId = 0;
-			try {
-				countryId = Integer.parseInt(data);
-			} catch (Exception e) {
-				// berarti semua country
-			}
-			listCities =  masterService.getListCityByCountry(countryId);	
+			CityParamVO cityParamVO = mapper.readValue(data, CityParamVO.class);
+			LOG.debug("cityParamVO : "+cityParamVO);	
+			listCities =  masterService.getListCityByCountry(cityParamVO);	
 			String x = mapper.writeValueAsString(listCities);
 			result = MessageUtils.handleSuccess(x, mapper);
 		} catch (BrideEngineException e) {
