@@ -206,6 +206,30 @@ INSERT INTO city(
   ,1
 );
 
+CREATE TABLE carousel
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  image_name Varchar(128),
+  status Int,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO carousel(
+   image_name
+  ,status
+) VALUES (
+  'lake.jpg'
+  ,1
+);
+
+INSERT INTO carousel(
+   image_name
+  ,status
+) VALUES (
+  'lake.jpg'
+  ,1
+);
+
 -- Table User
 
 CREATE TABLE User

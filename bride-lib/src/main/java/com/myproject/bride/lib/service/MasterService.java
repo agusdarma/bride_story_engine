@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myproject.bride.lib.data.CityParamVO;
+import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.mapper.CarouselMapper;
 import com.myproject.bride.lib.mapper.CategoryMapper;
 import com.myproject.bride.lib.mapper.CityMapper;
 import com.myproject.bride.lib.mapper.CountryMapper;
@@ -28,6 +30,9 @@ public class MasterService {
 	
 	@Autowired
 	private CityMapper cityMapper;
+	
+	@Autowired
+	private CarouselMapper carouselMapper;
 
 	public List<Category> getListCategories() throws BrideEngineException {
 		LOG.debug("process GetListCategories");
@@ -55,6 +60,13 @@ public class MasterService {
 		LOG.debug("process getListCityByCountry with cityParamVO " + cityParamVO);
 		List<City> listCities = cityMapper.getListCityByCountry(cityParamVO);
 		return listCities;
+
+	}
+	
+	public List<Carousel> getListCarousel() throws BrideEngineException {
+		LOG.debug("process getListCarousel");
+		List<Carousel> listCarousels = carouselMapper.getListCarousel();
+		return listCarousels;
 
 	}
 

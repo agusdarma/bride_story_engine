@@ -7,5 +7,5 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public interface BaseQueryLogic {
 	
-	public String process(HttpServletRequest request, HttpServletResponse response,String data, ObjectMapper objMapper, String pathInfo);
+	public Object process(HttpServletRequest request, HttpServletResponse response,String data, ObjectMapper objMapper, String pathInfo);
 }

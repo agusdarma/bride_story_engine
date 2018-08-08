@@ -1,8 +1,13 @@
 package com.myproject.bride.trx.servlet;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLConnection;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +21,6 @@ import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.myproject.bride.lib.utils.CipherUtil;
 import com.myproject.bride.lib.utils.CommonUtil;
 import com.myproject.bride.trx.logic.BaseQueryLogic;
 import com.myproject.bride.trx.logic.LogicFactory;
@@ -56,8 +60,10 @@ public class BrideServiceServlet extends HttpServlet {
 		long startTime = (int)System.currentTimeMillis();
 		
 		String pathInfo = request.getPathInfo();
+		String a = request.getParameter("n"); 
 		LOG.info("{} START", new String[] {pathInfo});
 		LOG.debug("POST PathInfo: {}", new String[] {pathInfo});
+		LOG.debug("POST a: {}", new String[] {a});
 		
 		BaseQueryLogic logic = logicFactory.getLogic().get(pathInfo);
 		if(logic == null){
@@ -81,29 +87,63 @@ public class BrideServiceServlet extends HttpServlet {
 //		}		
 		LOG.debug("RequestData: {}", new String[] { data });	
 	
-		String respData = logic.process(request,response,data, mapper, pathInfo);
+		Object respData = logic.process(request,response,data, mapper, pathInfo);
 		
 		if (respData == null) {
 			LOG.warn("PathInfo {} is not supported.", new String[] {pathInfo});
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);			
 			return;
 		}
-		if("/userActivate".equalsIgnoreCase(pathInfo)){
-//			response.setContentType("text/html;charset=UTF-8");	
-//		    request.setAttribute("message", respData);
-//		    request.getRequestDispatcher("/response_activated.jsp").forward(request, response);			
-			response.getWriter().write(respData);
-			response.getWriter().flush();
-		}else{
+		if (respData instanceof String) {
 			response.setContentType("application/json");
-			response.setContentLength(respData.length());
-			response.getWriter().write(respData);
+			response.setContentLength(((String) respData).length());
+			response.getWriter().write(((String) respData));
 			response.getWriter().flush();
-		}		
+		}else if (respData instanceof File) {			
+			File f = (File) respData;
+			String contentType = URLConnection.guessContentTypeFromName(f.getName());
+			LOG.debug("File: {}, contentType: {}", new String[] { f.getName(),contentType });				
+			BufferedImage image = ImageIO.read(f);
+			ImageIO.write(image, "jpg", response.getOutputStream());
+		}
+//		if("/userActivate".equalsIgnoreCase(pathInfo)){
+////			response.setContentType("text/html;charset=UTF-8");	
+////		    request.setAttribute("message", respData);
+////		    request.getRequestDispatcher("/response_activated.jsp").forward(request, response);			
+//			response.getWriter().write(respData);
+//			response.getWriter().flush();
+//		}else{
+//			response.setContentType("application/json");
+//			response.setContentLength(respData.length());
+//			response.getWriter().write(respData);
+//			response.getWriter().flush();
+//		}		
 		int delta = (int) (System.currentTimeMillis() - startTime);
 		LOG.info("{} FINISH in {}ms", new String[] {pathInfo, 
 				CommonUtil.displayNumberNoDecimal(delta) });
 	 }
+	
+//	private void _processImages(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//		LOG.info("_processImages with params: {}", request);		
+//		String cat = uriParams.get("c");
+//		if (StringUtils.isEmpty(cat)) {
+//			LOG.warn("Missing parameter c");
+//			response.setStatusCode(HttpStatus.SC_BAD_REQUEST);
+//			response.setEntity(new StringEntity("Invalid Request!"));
+//			return;
+//		}
+//		int imgCategory = Integer.parseInt(uriParams.get("c"));
+//		File f = imageProcessorFactory.findImageByParam(imgCategory, uriParams);
+//		
+//		// based on http://marxsoftware.blogspot.com/2015/02/determining-file-types-in-java.html
+//		String contentType = URLConnection.guessContentTypeFromName(f.getName());
+//		//MimetypesFileTypeMap.getDefaultFileTypeMap().getContentType(f);
+//		long contentLength = f.length();
+//		LOG.debug("File: {}, contentType: {}, Length: {}", f.getName(), contentType, contentLength);
+//		response.setStatusCode(HttpStatus.SC_OK);
+//		response.addHeader("Content-Type", contentType);
+//		response.setEntity(new FileEntity(f));
+//	}
 	
 	
 }

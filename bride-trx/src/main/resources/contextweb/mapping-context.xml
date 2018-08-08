@@ -13,6 +13,8 @@
 	<bean id="masterCategory" class="com.myproject.bride.trx.logic.parameter.MasterCategory"/>
 	<bean id="masterCountry" class="com.myproject.bride.trx.logic.parameter.MasterCountry"/>
 	<bean id="masterCity" class="com.myproject.bride.trx.logic.parameter.MasterCity"/>
+	<bean id="masterImages" class="com.myproject.bride.trx.logic.parameter.MasterImages"/>
+	<bean id="masterCarousel" class="com.myproject.bride.trx.logic.parameter.MasterCarousel"/>
 	
 	
 </beans>
