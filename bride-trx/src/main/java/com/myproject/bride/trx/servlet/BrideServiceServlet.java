@@ -59,11 +59,9 @@ public class BrideServiceServlet extends HttpServlet {
 			throws ServletException, IOException {
 		long startTime = (int)System.currentTimeMillis();
 		
-		String pathInfo = request.getPathInfo();
-		String a = request.getParameter("n"); 
+		String pathInfo = request.getPathInfo();		
 		LOG.info("{} START", new String[] {pathInfo});
 		LOG.debug("POST PathInfo: {}", new String[] {pathInfo});
-		LOG.debug("POST a: {}", new String[] {a});
 		
 		BaseQueryLogic logic = logicFactory.getLogic().get(pathInfo);
 		if(logic == null){

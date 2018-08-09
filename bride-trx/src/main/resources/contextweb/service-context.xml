@@ -41,6 +41,10 @@
 		<property name="baseurlMidtransAPI" value="${baseurlMidtransAPI}" />
 	</bean>	
 	
+	<bean id="imagesService" class="com.myproject.bride.lib.service.ImagesService"> 
+		<property name="pathName" value="${pathName}" />		
+	</bean>	
+	
 	<bean id="logicFactory" class="com.myproject.bride.trx.logic.LogicFactory">
 		<property name="logic" >
 		    <map>
@@ -48,7 +52,7 @@
 		        <entry key="/cat" value-ref="masterCategory"></entry>
 		        <entry key="/country" value-ref="masterCountry"></entry>
 		        <entry key="/city" value-ref="masterCity"></entry>
-		        <entry key="/images" value-ref="masterImages"></entry>
+		        <entry key="/getImageByName" value-ref="masterImages"></entry>
 		        <entry key="/allCarousel" value-ref="masterCarousel"></entry>
 		        
 		        

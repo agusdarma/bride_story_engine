@@ -85,4 +85,6 @@ public class Constants {
 	
 	public static final String SHARED_PREF_LOGIN		= "SharedPrefLogin";	
 	
+	public static final String KEY_IMAGE_NAME				= "n";
+	
 }

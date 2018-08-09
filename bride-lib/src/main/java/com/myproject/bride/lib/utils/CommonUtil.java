@@ -5,8 +5,12 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -248,5 +252,19 @@ public class CommonUtil {
 		long diffMinutesOnly = diff / (60 * 1000);
 		return diffMinutesOnly;
 	}
+	
+	public static HashMap<String, String> parseParameterQuery(HttpServletRequest req){	
+		HashMap<String, String> result = new HashMap<String, String>();
+		Enumeration<String> parameterNames = req.getParameterNames();
+		while (parameterNames.hasMoreElements()) {
+			
+		    String key = (String) parameterNames.nextElement();
+		    String val = req.getParameter(key);
+		    result.put(key, val);		    
+		}
+		return result;
+	}
+	
+	
 	
 }
