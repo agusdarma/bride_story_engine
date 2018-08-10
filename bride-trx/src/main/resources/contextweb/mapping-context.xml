@@ -16,5 +16,7 @@
 	<bean id="masterImages" class="com.myproject.bride.trx.logic.parameter.MasterImages"/>
 	<bean id="masterCarousel" class="com.myproject.bride.trx.logic.parameter.MasterCarousel"/>
 	
+	<bean id="getListVendor" class="com.myproject.bride.trx.logic.trx.GetListVendor"/>
+	
 	
 </beans>

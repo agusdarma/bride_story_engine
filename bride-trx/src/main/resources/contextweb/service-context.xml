@@ -55,6 +55,8 @@
 		        <entry key="/getImageByName" value-ref="masterImages"></entry>
 		        <entry key="/allCarousel" value-ref="masterCarousel"></entry>
 		        
+		        <!-- Trx Module  -->
+		        <entry key="/getListVendor" value-ref="getListVendor"></entry>
 		        
 		        <!--<entry key="/userRegistration" value-ref="userRegistration"></entry>
 		        <entry key="/userActivate" value-ref="userActivate"></entry>

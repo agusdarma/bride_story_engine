@@ -230,6 +230,90 @@ INSERT INTO carousel(
   ,1
 );
 
+CREATE TABLE vendor
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  urlProfileImage Varchar(128),
+  vendorName Varchar(128),
+  countReviews Varchar(128),
+  categoryName Varchar(128),
+  categoryId Int,
+  cityName Varchar(128),
+  cityId Int,  
+  status Int,
+ PRIMARY KEY (id)
+);
+
+CREATE TABLE project
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  urlImageProject Varchar(128),
+  titleProject Varchar(128),
+  vendorId Int,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO vendor(
+   urlProfileImage
+  ,vendorName
+  ,countReviews
+  ,categoryName
+  ,categoryId
+  ,cityName
+  ,cityId
+  ,status
+) VALUES (
+  '1.jpg'
+  ,'Jova Music'
+  ,'32'
+  ,'Entertainment ( MC )'
+  ,7
+  ,'Jakarta'
+  ,1
+  ,1
+);
+
+INSERT INTO project(
+   urlImageProject
+  ,titleProject
+  ,vendorId  
+) VALUES (
+  '1.jpg'
+  ,'Michael Bubble - Everything'
+  ,1  
+);
+
+
+INSERT INTO vendor(
+   urlProfileImage
+  ,vendorName
+  ,countReviews
+  ,categoryName
+  ,categoryId
+  ,cityName
+  ,cityId
+  ,status
+) VALUES (
+  '2.jpg'
+  ,'Port Love Creative Studio'
+  ,'16'
+  ,'Entertainment ( MC )'
+  ,7
+  ,'Jakarta'
+  ,1
+  ,1
+);
+
+INSERT INTO project(
+   urlImageProject
+  ,titleProject
+  ,vendorId  
+) VALUES (
+  '3.jpg'
+  ,'Michael Bubble - Everything2'
+  ,2  
+);
+
 -- Table User
 
 CREATE TABLE User
