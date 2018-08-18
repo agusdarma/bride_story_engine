@@ -57,6 +57,7 @@
 		        
 		        <!-- Trx Module  -->
 		        <entry key="/getListVendor" value-ref="getListVendor"></entry>
+		        <entry key="/getListVenue" value-ref="getListVenue"></entry>
 		        
 		        <!--<entry key="/userRegistration" value-ref="userRegistration"></entry>
 		        <entry key="/userActivate" value-ref="userActivate"></entry>

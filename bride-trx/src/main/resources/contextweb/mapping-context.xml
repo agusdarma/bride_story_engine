@@ -17,6 +17,7 @@
 	<bean id="masterCarousel" class="com.myproject.bride.trx.logic.parameter.MasterCarousel"/>
 	
 	<bean id="getListVendor" class="com.myproject.bride.trx.logic.trx.GetListVendor"/>
+	<bean id="getListVenue" class="com.myproject.bride.trx.logic.trx.GetListVenue"/>
 	
 	
 </beans>

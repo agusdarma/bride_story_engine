@@ -13,11 +13,13 @@ import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.entity.Venue;
 import com.myproject.bride.lib.mapper.CarouselMapper;
 import com.myproject.bride.lib.mapper.CategoryMapper;
 import com.myproject.bride.lib.mapper.CityMapper;
 import com.myproject.bride.lib.mapper.CountryMapper;
 import com.myproject.bride.lib.mapper.VendorMapper;
+import com.myproject.bride.lib.mapper.VenueMapper;
 
 @Service
 public class MasterService {
@@ -38,6 +40,17 @@ public class MasterService {
 
 	@Autowired
 	private VendorMapper vendorMapper;
+	
+	@Autowired
+	private VenueMapper venueMapper;
+	
+	public List<Venue> getListVenue() throws BrideEngineException {
+		LOG.debug("process getListVenue");
+		List<Venue> listVenues = venueMapper.getListVenue();
+		return listVenues;
+
+	}
+
 
 	public List<VendorVO> getListVendor() throws BrideEngineException {
 		LOG.debug("process getListVendor");

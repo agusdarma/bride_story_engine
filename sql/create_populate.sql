@@ -314,6 +314,69 @@ INSERT INTO project(
   ,2  
 );
 
+CREATE TABLE venue
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  linkImageVenue Varchar(128),
+  titleVenue Varchar(128),
+  addressVenue Varchar(128),
+  capacityVisitor Varchar(128),
+  capacityParkir Varchar(128),
+  luasBangunan Varchar(128),
+  luasTanah Varchar(128),
+  hargaVenue Varchar(128),
+  idCity Int,
+  status Int,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO venue(
+   linkImageVenue
+  ,titleVenue
+  ,addressVenue
+  ,capacityVisitor
+  ,capacityParkir
+  ,luasBangunan
+  ,luasTanah
+  ,hargaVenue
+  ,idCity
+) VALUES (
+  '3.jpg'
+  ,'Balai Samudra'
+  ,'Jalan Boulevard Barat No. 1, Kelapa Gading Barat, RT.2/RW.9, Kelapa Gading Barat, RT.2/RW.9, Klp. Gading Bar., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240'  
+  ,'Kapasitas ruangan : 1500 tamu'
+  ,'Kapasitas parkir : 1500 mobil'
+  ,'Luas bangunan 500 m2'
+  ,'Luas lahan 800 m2'
+  ,'30000000'
+  ,1
+  ,1
+  
+);
+
+INSERT INTO venue(
+   linkImageVenue
+  ,titleVenue
+  ,addressVenue
+  ,capacityVisitor
+  ,capacityParkir
+  ,luasBangunan
+  ,luasTanah
+  ,hargaVenue
+  ,idCity
+) VALUES (
+  '3.jpg'
+  ,'Balai Samudra'
+  ,'Jalan Boulevard Barat No. 1, Kelapa Gading Barat, RT.2/RW.9, Kelapa Gading Barat, RT.2/RW.9, Klp. Gading Bar., Klp. Gading, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14240'  
+  ,'Kapasitas ruangan : 1500 tamu'
+  ,'Kapasitas parkir : 1500 mobil'
+  ,'Luas bangunan 500 m2'
+  ,'Luas lahan 800 m2'
+  ,'30000000'
+  ,1
+  ,1
+);
+
 -- Table User
 
 CREATE TABLE User
