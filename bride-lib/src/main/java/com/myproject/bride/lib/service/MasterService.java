@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.data.VendorVO;
+import com.myproject.bride.lib.data.VenueParamVO;
+import com.myproject.bride.lib.data.VenueVO;
 import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
-import com.myproject.bride.lib.entity.Venue;
 import com.myproject.bride.lib.mapper.CarouselMapper;
 import com.myproject.bride.lib.mapper.CategoryMapper;
 import com.myproject.bride.lib.mapper.CityMapper;
@@ -44,9 +45,9 @@ public class MasterService {
 	@Autowired
 	private VenueMapper venueMapper;
 	
-	public List<Venue> getListVenue() throws BrideEngineException {
+	public List<VenueVO> getListVenue(VenueParamVO venueParamVO) throws BrideEngineException {
 		LOG.debug("process getListVenue");
-		List<Venue> listVenues = venueMapper.getListVenue();
+		List<VenueVO> listVenues = venueMapper.getListVenue(venueParamVO);
 		return listVenues;
 
 	}

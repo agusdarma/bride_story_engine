@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class City implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private int cityId;
 	private String cityName;
 	private int countryId;
 	private boolean selected;
@@ -37,6 +38,14 @@ public class City implements Serializable {
 
 	public void setSelected(boolean selected) {
 		this.selected = selected;
+	}
+
+	public int getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(int cityId) {
+		this.cityId = cityId;
 	}
 
 	

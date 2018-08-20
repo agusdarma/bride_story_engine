@@ -377,6 +377,43 @@ INSERT INTO venue(
   ,1
 );
 
+
+
+CREATE TABLE booking_date
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  bookingDate bigint NOT NULL,
+  isDay Int NOT NULL,
+  isNight Int NOT NULL,
+  idVenue Int NOT NULL,
+ PRIMARY KEY (id)
+)
+-- 1534784400000
+
+INSERT INTO booking_date(
+   bookingDate
+  ,isDay
+  ,isNight
+  ,idVenue
+) VALUES (
+  1534784400000
+  ,1
+  ,1
+  ,1
+);
+
+INSERT INTO booking_date(
+   bookingDate
+  ,isDay
+  ,isNight
+  ,idVenue
+) VALUES (
+  1634784400000
+  ,1
+  ,1
+  ,1
+);
+
 -- Table User
 
 CREATE TABLE User

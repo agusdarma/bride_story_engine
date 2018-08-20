@@ -6,17 +6,17 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public class Venue implements Serializable {
 	private static final long serialVersionUID = 1L;
-	 private int id;
-	 private String linkImageVenue;
-	 private String titleVenue;
-	 private String addressVenue;
-	 private String capacityVisitor;
-	 private String capacityParkir;
-	 private String luasBangunan;
-	 private String luasTanah;
-	 private String hargaVenue;
-	 private int idCity;
-	 private String locationVenue;
+	private int id;
+	private String linkImageVenue;
+	private String titleVenue;
+	private String addressVenue;
+	private String capacityVisitor;
+	private String capacityParkir;
+	private String luasBangunan;
+	private String luasTanah;
+	private String hargaVenue;
+	private int idCity;
+	private String locationVenue;
 
 	@Override
 	public String toString() {
@@ -111,5 +111,4 @@ public class Venue implements Serializable {
 		this.locationVenue = locationVenue;
 	}
 
-	
 }

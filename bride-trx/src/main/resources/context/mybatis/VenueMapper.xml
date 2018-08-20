@@ -12,13 +12,38 @@
 
 <mapper namespace="com.myproject.bride.lib.mapper.VenueMapper">
 
-	<select id="getListVenue" resultType="Venue">
+	<resultMap id="VenueResult" type="VenueVO">		
+		<result property="venue.id" column="id" />
+		<result property="venue.linkImageVenue" column="linkImageVenue" />
+		<result property="venue.titleVenue" column="titleVenue" />
+		<result property="venue.addressVenue" column="addressVenue" />
+		<result property="venue.capacityVisitor" column="capacityVisitor" />
+		<result property="venue.capacityParkir" column="capacityParkir" />
+		<result property="venue.luasBangunan" column="luasBangunan" />
+		<result property="venue.luasTanah" column="luasTanah" />
+		<result property="venue.hargaVenue" column="hargaVenue" />
+		<result property="venue.idCity" column="idCity" />
+		<result property="venue.locationVenue" column="locationVenue" />
+	
+		<collection property="listBookingDates" ofType="BookingDate">			
+			<result property="id" column="idBooking" />
+			<result property="bookingDate" column="bookingDate" />
+			<result property="isDay" column="isDay" />
+			<result property="isNight" column="isNight" />
+			<result property="idVenue" column="idVenue" />			
+		</collection>	
+	</resultMap>
+
+	<select id="getListVenue" parameterType="VenueParamVO" resultMap="VenueResult">
 		select v.id as id, v.linkImageVenue as linkImageVenue, v.titleVenue as titleVenue,
 		v.addressVenue as addressVenue,v.capacityVisitor as capacityVisitor,v.capacityParkir as capacityParkir,
 		v.luasBangunan as luasBangunan,v.luasTanah as luasTanah,v.hargaVenue as hargaVenue,
-		c.id as idCity, c.city_name as locationVenue    
-		from venue v inner join city c on v.idCity = c.id
-		where v.`status` = 1 
+		c.id as idCity, c.city_name as locationVenue,
+		bd.id as idBooking ,bd.bookingDate as bookingDate,bd.isDay as isDay,bd.isNight as isNight,bd.idVenue as idVenue	
+		from venue v 
+		inner join city c on v.idCity = c.id
+		left join booking_date bd on bd.idVenue = v.id
+		where v.`status` = 1 and v.idCity = #{cityId}		
 		order by v.titleVenue asc
 	</select>
 
