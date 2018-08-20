@@ -24,6 +24,8 @@
 		<result property="venue.hargaVenue" column="hargaVenue" />
 		<result property="venue.idCity" column="idCity" />
 		<result property="venue.locationVenue" column="locationVenue" />
+		<result property="venue.latitude" column="latitude" />
+		<result property="venue.longitude" column="longitude" />
 	
 		<collection property="listBookingDates" ofType="BookingDate">			
 			<result property="id" column="idBooking" />
@@ -38,6 +40,7 @@
 		select v.id as id, v.linkImageVenue as linkImageVenue, v.titleVenue as titleVenue,
 		v.addressVenue as addressVenue,v.capacityVisitor as capacityVisitor,v.capacityParkir as capacityParkir,
 		v.luasBangunan as luasBangunan,v.luasTanah as luasTanah,v.hargaVenue as hargaVenue,
+		v.latitude as latitude, v.longitude as longitude,
 		c.id as idCity, c.city_name as locationVenue,
 		bd.id as idBooking ,bd.bookingDate as bookingDate,bd.isDay as isDay,bd.isNight as isNight,bd.idVenue as idVenue	
 		from venue v 

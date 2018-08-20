@@ -327,6 +327,8 @@ CREATE TABLE venue
   hargaVenue Varchar(128),
   idCity Int,
   status Int,
+  latitude double,
+  longitude double,
  PRIMARY KEY (id)
 );
 
@@ -340,6 +342,9 @@ INSERT INTO venue(
   ,luasTanah
   ,hargaVenue
   ,idCity
+  ,status
+  ,latitude
+  ,longitude
 ) VALUES (
   '3.jpg'
   ,'Balai Samudra'
@@ -351,6 +356,8 @@ INSERT INTO venue(
   ,'30000000'
   ,1
   ,1
+  ,-6.1541491
+  ,106.8893441
   
 );
 
@@ -364,6 +371,9 @@ INSERT INTO venue(
   ,luasTanah
   ,hargaVenue
   ,idCity
+  ,status
+  ,latitude
+  ,longitude
 ) VALUES (
   '3.jpg'
   ,'Balai Samudra'
@@ -375,6 +385,9 @@ INSERT INTO venue(
   ,'30000000'
   ,1
   ,1
+  ,-6.1541491
+  ,106.8893441
+  
 );
 
 

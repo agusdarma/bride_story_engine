@@ -16,6 +16,8 @@ public class Venue implements Serializable {
 	private String luasTanah;
 	private String hargaVenue;
 	private int idCity;
+	private double latitude;
+	private double longitude;
 	private String locationVenue;
 
 	@Override
@@ -109,6 +111,22 @@ public class Venue implements Serializable {
 
 	public void setLocationVenue(String locationVenue) {
 		this.locationVenue = locationVenue;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
 
 }
