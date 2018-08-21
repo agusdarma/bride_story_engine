@@ -57,7 +57,9 @@ public class WebException extends Exception {
 	public static final int NE_MUST_HAVE_PARAM			= 30003; //PIC have 1 Account
 	public static final int NE_JOIN_NOT_FOUND			= 30003;
 	public static final int NE_INVALID_POSITION_LEVEL	= 30004;
-	public static final int NE_INVALID_BRANCH_PRODUCT	= 30005;		
+	public static final int NE_INVALID_BRANCH_PRODUCT	= 30005;	
+	
+	public static final int NE_BOOKING_DUPLICATE		= 40000;
 	
 	public static final String MYBATIS_TOO_MANY_RESULT = "org.apache.ibatis.exceptions.TooManyResultsException";
 	

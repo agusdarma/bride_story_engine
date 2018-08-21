@@ -1,26 +1,32 @@
 package com.myproject.bride.lib.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.myproject.bride.lib.data.BookingDateVO;
 import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.data.VendorVO;
 import com.myproject.bride.lib.data.VenueParamVO;
 import com.myproject.bride.lib.data.VenueVO;
+import com.myproject.bride.lib.entity.BookingDate;
 import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.mapper.BookingDateMapper;
 import com.myproject.bride.lib.mapper.CarouselMapper;
 import com.myproject.bride.lib.mapper.CategoryMapper;
 import com.myproject.bride.lib.mapper.CityMapper;
 import com.myproject.bride.lib.mapper.CountryMapper;
 import com.myproject.bride.lib.mapper.VendorMapper;
 import com.myproject.bride.lib.mapper.VenueMapper;
+import com.myproject.bride.lib.utils.WebException;
 
 @Service
 public class MasterService {
@@ -44,6 +50,45 @@ public class MasterService {
 	
 	@Autowired
 	private VenueMapper venueMapper;
+	
+	@Autowired
+	private BookingDateMapper bookingDateMapper;
+	
+	@Transactional
+	public void createUpdateBookingDate(BookingDateVO bookingDateVO) throws BrideEngineException {
+		LOG.debug("createUpdateBookingDate : " + bookingDateVO);
+		bookingDateVO.setIsDay(0);
+		bookingDateVO.setIsNight(0);
+		if(1 == bookingDateVO.getTime()){
+			bookingDateVO.setIsDay(1);
+		}else if(2 == bookingDateVO.getTime()){
+			bookingDateVO.setIsNight(1);
+		}
+		int result;
+		BookingDate booVo = bookingDateMapper.findBookingDateByParam(bookingDateVO);
+		if(booVo!=null){
+			if(booVo.getIsDay() == 1 && bookingDateVO.getIsDay() == 1){
+				throw new BrideEngineException(WebException.NE_BOOKING_DUPLICATE);
+			}
+			if(booVo.getIsNight() == 1 && bookingDateVO.getIsNight() == 1){
+				throw new BrideEngineException(WebException.NE_BOOKING_DUPLICATE);
+			}
+			if(booVo.getIsDay() == 1){
+				bookingDateVO.setIsDay(1);
+			}
+			if(booVo.getIsNight() == 1){
+				bookingDateVO.setIsNight(1);
+			}
+			result = bookingDateMapper.updateBookingDate(bookingDateVO);
+			LOG.debug("updateBookingDate success with param : " + bookingDateVO);
+		}else{
+			result = bookingDateMapper.createBookingDate(bookingDateVO);
+			LOG.debug("createBookingDate success with param : " + bookingDateVO);
+		}
+		
+		
+		LOG.debug(result +" row affected");				
+	}
 	
 	public List<VenueVO> getListVenue(VenueParamVO venueParamVO) throws BrideEngineException {
 		LOG.debug("process getListVenue");

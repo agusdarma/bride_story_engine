@@ -18,6 +18,7 @@
 	
 	<bean id="getListVendor" class="com.myproject.bride.trx.logic.trx.GetListVendor"/>
 	<bean id="getListVenue" class="com.myproject.bride.trx.logic.trx.GetListVenue"/>
+	<bean id="createUpdateBooking" class="com.myproject.bride.trx.logic.trx.CreateUpdateBookingDate"/>
 	
 	
 </beans>

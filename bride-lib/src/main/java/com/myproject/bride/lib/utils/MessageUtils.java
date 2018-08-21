@@ -49,7 +49,8 @@ public class MessageUtils {
 				}else{
 					messageVO.setRc(jme.getErrorCode());
 					messageVO.setMessageRc(props.getProperty("rc."+jme.getErrorCode()));
-					messageVO.setOtherMessage(otherMessage);
+//					messageVO.setOtherMessage(otherMessage);
+					messageVO.setOtherMessage(props.getProperty("rc."+jme.getErrorCode()));
 					LOG.warn("MessageVO : [{}]", messageVO);
 				}
 			} else {
