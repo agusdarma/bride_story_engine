@@ -10,4 +10,6 @@ public interface VenueMapper {
 	
 	public List<VenueVO> getListVenue(VenueParamVO venueParamVO);
 	
+	public List<VenueVO> getVenueById(VenueParamVO venueParamVO);
+	
 }

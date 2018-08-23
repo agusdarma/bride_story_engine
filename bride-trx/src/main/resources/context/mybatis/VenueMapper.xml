@@ -49,5 +49,21 @@
 		where v.`status` = 1 and v.idCity = #{cityId}		
 		order by v.titleVenue asc
 	</select>
+	
+	<select id="getVenueById" parameterType="VenueParamVO" resultMap="VenueResult">
+		select v.id as id, v.linkImageVenue as linkImageVenue, v.titleVenue as titleVenue,
+		v.addressVenue as addressVenue,v.capacityVisitor as capacityVisitor,v.capacityParkir as capacityParkir,
+		v.luasBangunan as luasBangunan,v.luasTanah as luasTanah,v.hargaVenue as hargaVenue,
+		v.latitude as latitude, v.longitude as longitude,
+		c.id as idCity, c.city_name as locationVenue,
+		bd.id as idBooking ,bd.bookingDate as bookingDate,bd.isDay as isDay,bd.isNight as isNight,bd.idVenue as idVenue	
+		from venue v 
+		inner join city c on v.idCity = c.id
+		left join booking_date bd on bd.idVenue = v.id
+		where v.`status` = 1 and v.id = #{idVenue}		
+		order by v.titleVenue asc
+	</select>
+	
+	
 
 </mapper>

@@ -399,6 +399,7 @@ CREATE TABLE booking_date
   isDay Int NOT NULL,
   isNight Int NOT NULL,
   idVenue Int NOT NULL,
+  bookingOn Datetime NOT NULL,
  PRIMARY KEY (id)
 )
 -- 1534784400000

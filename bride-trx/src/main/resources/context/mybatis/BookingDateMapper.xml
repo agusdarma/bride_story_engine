@@ -14,12 +14,13 @@
 
 	<insert id="createBookingDate" parameterType="BookingDateVO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO booking_date 
-    	(bookingDate, isDay, isNight, idVenue)
+    	(bookingDate, isDay, isNight, idVenue,bookingOn)
     	values (
     	#{dateTimeMilisecond},
     	#{isDay},
     	#{isNight},
-    	#{idVenue}    	
+    	#{idVenue},
+    	#{dateTime}    	
     	)
 	</insert>
 	
@@ -33,7 +34,7 @@
     <select id="findBookingDateByParam" resultType="BookingDate" parameterType="BookingDateVO">
 		select bd.id as id, bd.bookingDate as bookingDate, bd.isDay as isDay, bd.isNight as isNight, bd.idVenue as idVenue		
 		from booking_date bd
-		where bd.bookingDate=#{dateTimeMilisecond}		
+		where bd.bookingDate=#{dateTimeMilisecond} and bd.idVenue =#{idVenue} 		
 	</select>
 
 </mapper>

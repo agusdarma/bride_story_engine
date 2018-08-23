@@ -11,6 +11,7 @@ public class VenueParamVO implements java.io.Serializable {
 	private int countryId;
 	private String cityName;
 	private int cityId;
+	private int idVenue;
 	private long bookingDate;
 
 	@Override
@@ -72,6 +73,14 @@ public class VenueParamVO implements java.io.Serializable {
 
 	public void setBookingDate(long bookingDate) {
 		this.bookingDate = bookingDate;
+	}
+
+	public int getIdVenue() {
+		return idVenue;
+	}
+
+	public void setIdVenue(int idVenue) {
+		this.idVenue = idVenue;
 	}
 
 	

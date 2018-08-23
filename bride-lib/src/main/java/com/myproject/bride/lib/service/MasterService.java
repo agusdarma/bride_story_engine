@@ -96,6 +96,13 @@ public class MasterService {
 		return listVenues;
 
 	}
+	
+	public List<VenueVO> GetVenueById(VenueParamVO venueParamVO) throws BrideEngineException {
+		LOG.debug("process getVenueById");
+		List<VenueVO> listVenues = venueMapper.getVenueById(venueParamVO);
+		return listVenues;
+
+	}
 
 
 	public List<VendorVO> getListVendor() throws BrideEngineException {
