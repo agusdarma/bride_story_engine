@@ -428,6 +428,14 @@ INSERT INTO booking_date(
   ,1
 );
 
+CREATE TABLE similar_venue
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  idPrimaryVenue int NOT NULL,
+  idSimilarVenue int NOT NULL,
+ PRIMARY KEY (id)
+)
+
 -- Table User
 
 CREATE TABLE User

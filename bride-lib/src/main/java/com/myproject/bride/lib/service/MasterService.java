@@ -90,6 +90,13 @@ public class MasterService {
 		LOG.debug(result +" row affected");				
 	}
 	
+	public List<VenueVO> getListSimilarVenue(VenueParamVO venueParamVO) throws BrideEngineException {
+		LOG.debug("process getListSimilarVenue");
+		List<VenueVO> listVenues = venueMapper.getListSimilarVenue(venueParamVO);
+		return listVenues;
+
+	}
+	
 	public List<VenueVO> getListVenue(VenueParamVO venueParamVO) throws BrideEngineException {
 		LOG.debug("process getListVenue");
 		List<VenueVO> listVenues = venueMapper.getListVenue(venueParamVO);
