@@ -400,6 +400,11 @@ CREATE TABLE booking_date
   isNight Int NOT NULL,
   idVenue Int NOT NULL,
   bookingOn Datetime NOT NULL,
+  namaPernikahan Varchar(128),
+  namaPenanggungJawab1 Varchar(128),
+  handPhone1 Varchar(128),
+  namaPenanggungJawab2 Varchar(128),
+  handPhone2 Varchar(128),
  PRIMARY KEY (id)
 )
 -- 1534784400000

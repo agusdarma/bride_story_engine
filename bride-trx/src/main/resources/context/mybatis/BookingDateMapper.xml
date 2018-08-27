@@ -14,13 +14,18 @@
 
 	<insert id="createBookingDate" parameterType="BookingDateVO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO booking_date 
-    	(bookingDate, isDay, isNight, idVenue,bookingOn)
+    	(bookingDate, isDay, isNight, idVenue,bookingOn,namaPernikahan,namaPenanggungJawab1,handPhone1,namaPenanggungJawab2,handPhone2)
     	values (
     	#{dateTimeMilisecond},
     	#{isDay},
     	#{isNight},
     	#{idVenue},
-    	#{dateTime}    	
+    	#{dateTime},
+    	#{namaPernikahan},
+    	#{namaPenanggungJawab1},
+    	#{handPhone1},
+    	#{namaPenanggungJawab2},
+    	#{handPhone2}    	
     	)
 	</insert>
 	

@@ -15,6 +15,11 @@ public class BookingDateVO implements java.io.Serializable {
 	private int isDay;
 	private int isNight;
 	private long dateTimeMilisecond;
+	private String namaPernikahan;
+	private String namaPenanggungJawab1;
+	private String handPhone1;
+	private String namaPenanggungJawab2;
+	private String handPhone2;
 
 	@Override
 	public String toString() {
@@ -77,6 +82,46 @@ public class BookingDateVO implements java.io.Serializable {
 
 	public void setIsNight(int isNight) {
 		this.isNight = isNight;
+	}
+
+	public String getNamaPernikahan() {
+		return namaPernikahan;
+	}
+
+	public void setNamaPernikahan(String namaPernikahan) {
+		this.namaPernikahan = namaPernikahan;
+	}
+
+	public String getNamaPenanggungJawab1() {
+		return namaPenanggungJawab1;
+	}
+
+	public void setNamaPenanggungJawab1(String namaPenanggungJawab1) {
+		this.namaPenanggungJawab1 = namaPenanggungJawab1;
+	}
+
+	public String getHandPhone1() {
+		return handPhone1;
+	}
+
+	public void setHandPhone1(String handPhone1) {
+		this.handPhone1 = handPhone1;
+	}
+
+	public String getNamaPenanggungJawab2() {
+		return namaPenanggungJawab2;
+	}
+
+	public void setNamaPenanggungJawab2(String namaPenanggungJawab2) {
+		this.namaPenanggungJawab2 = namaPenanggungJawab2;
+	}
+
+	public String getHandPhone2() {
+		return handPhone2;
+	}
+
+	public void setHandPhone2(String handPhone2) {
+		this.handPhone2 = handPhone2;
 	}
 
 }
