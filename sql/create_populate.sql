@@ -406,7 +406,7 @@ CREATE TABLE booking_date
   namaPenanggungJawab2 Varchar(128),
   handPhone2 Varchar(128),
  PRIMARY KEY (id)
-)
+);
 -- 1534784400000
 
 INSERT INTO booking_date(
