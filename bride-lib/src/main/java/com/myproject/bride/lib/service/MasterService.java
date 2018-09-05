@@ -1,8 +1,10 @@
 package com.myproject.bride.lib.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.myproject.bride.lib.data.BookingDateVO;
 import com.myproject.bride.lib.data.CityParamVO;
+import com.myproject.bride.lib.data.LoginDataVO;
 import com.myproject.bride.lib.data.VendorVO;
 import com.myproject.bride.lib.data.VenueParamVO;
 import com.myproject.bride.lib.data.VenueVO;
@@ -19,13 +22,16 @@ import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.entity.UserData;
 import com.myproject.bride.lib.mapper.BookingDateMapper;
 import com.myproject.bride.lib.mapper.CarouselMapper;
 import com.myproject.bride.lib.mapper.CategoryMapper;
 import com.myproject.bride.lib.mapper.CityMapper;
 import com.myproject.bride.lib.mapper.CountryMapper;
+import com.myproject.bride.lib.mapper.UserDataMapper;
 import com.myproject.bride.lib.mapper.VendorMapper;
 import com.myproject.bride.lib.mapper.VenueMapper;
+import com.myproject.bride.lib.utils.CipherUtil;
 import com.myproject.bride.lib.utils.WebException;
 
 @Service
@@ -53,6 +59,38 @@ public class MasterService {
 	
 	@Autowired
 	private BookingDateMapper bookingDateMapper;
+	
+	@Autowired
+	private UserDataMapper userDataMapper;
+	
+	public LoginDataVO doLogin(LoginDataVO loginDataVO) throws BrideEngineException {
+		LOG.debug("process doLogin with param " + loginDataVO);
+		UserData userData = userDataMapper.findUserDataByEmail(loginDataVO);
+		if(userData == null){	
+			throw new BrideEngineException(WebException.NE_USER_DATA_INVALID);
+		}
+		String plainPass = loginDataVO.getPassword();
+		String encPassword = CipherUtil.passwordDigest(userData.getEmail(), plainPass);
+		if (!encPassword.equals(userData.getPassword())){			
+			throw new BrideEngineException(WebException.NE_USER_DATA_INVALID_PASS);
+		} 
+		String sessionData = CipherUtil.generateAlphaNumeric(32);
+		Date now = new Date();
+		userData.setSessionData(sessionData);
+//		Calendar calendar = Calendar.getInstance();
+//		calendar.setTimeInMillis(now.getTime());
+		userData.setSessionOn(now);
+		userData.setSessionDate(now.getTime());
+		loginDataVO.setSessionData(sessionData);
+		loginDataVO.setSessionDate(now.getTime());
+		
+		int hasil = userDataMapper.updateUserData(userData);
+		LOG.debug(hasil + " row affected ");
+		
+		
+		return loginDataVO;
+
+	}
 	
 	@Transactional
 	public void createUpdateBookingDate(BookingDateVO bookingDateVO) throws BrideEngineException {

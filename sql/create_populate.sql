@@ -439,7 +439,32 @@ CREATE TABLE similar_venue
   idPrimaryVenue int NOT NULL,
   idSimilarVenue int NOT NULL,
  PRIMARY KEY (id)
-)
+);
+
+CREATE TABLE user_data
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  email Varchar(128) NOT NULL,
+  password Varchar(80) NOT NULL,
+  sessionData Varchar(80),
+  sessionDate bigint,
+  sessionOn Datetime,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO user_data(
+   email
+  ,password
+  ,sessionData
+  ,sessionDate
+  ,sessionOn
+) VALUES (
+  'admin@gmail.com'
+  ,'embadmin'
+  ,'9999999999999'
+  ,0
+  ,null
+);
 
 -- Table User
 

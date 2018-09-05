@@ -1,10 +1,9 @@
 package com.myproject.bride.lib.utils;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.Security;
 import java.util.Arrays;
+import java.util.Random;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -24,6 +23,7 @@ public class CipherUtil {
 	public static final String PASSWORD = "BRIDE124A7BDF5C701B69B4BACD05F1538EA2";
 	private static final int MAX_LENGTH_3DES_KEY_SMARTPHONE = 24;
 	private static final Logger LOG = LoggerFactory.getLogger(CipherUtil.class);
+	private static Random r = new Random();
 	
 	static {
 		Security.addProvider(new BouncyCastleProvider());
@@ -76,6 +76,16 @@ public class CipherUtil {
 				sb.append(data1.substring(i, i + 1));
 			if (i < data2.length())
 				sb.append(data2.substring(i, i + 1));
+		}
+		return sb.toString();
+	}
+	
+	public static String generateAlphaNumeric(int length) {
+		String C = "QWERTYUIOPLKJHGFDAZXCVBNM0987654321";
+		StringBuffer sb = new StringBuffer(length);
+		for (int i = 0; i < length; i++) {
+			int idx = r.nextInt(C.length());
+			sb.append(C.substring(idx, idx + 1));
 		}
 		return sb.toString();
 	}
