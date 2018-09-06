@@ -8,7 +8,8 @@ public class LoginDataVO implements java.io.Serializable {
 	private String email;
 	private String password;
 	private String sessionData;
-	private long sessionDate;	
+	private long sessionDate;
+	private int timeOutLoginSetting;	
 
 	@Override
 	public String toString() {
@@ -45,6 +46,14 @@ public class LoginDataVO implements java.io.Serializable {
 
 	public void setSessionDate(long sessionDate) {
 		this.sessionDate = sessionDate;
+	}
+
+	public int getTimeOutLoginSetting() {
+		return timeOutLoginSetting;
+	}
+
+	public void setTimeOutLoginSetting(int timeOutLoginSetting) {
+		this.timeOutLoginSetting = timeOutLoginSetting;
 	}
 
 	

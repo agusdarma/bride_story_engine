@@ -17,6 +17,8 @@ public class Constants {
 	public static final int STATUS_AUTO_RELEASE_AFTER_PAY					= 4	;
 	public static final int STATUS_ALREADY_CHECK_OUT						= 5	;
 	
+	public static final int SETTING_TIMEOUT_LOGIN_USER					= 4;
+	
 	
 	public static final String FRAUD_STATUS_ACCEPT							= "accept"	;
 	public static final String FRAUD_STATUS_DENY							= "deny"	;

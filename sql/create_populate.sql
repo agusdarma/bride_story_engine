@@ -466,6 +466,9 @@ INSERT INTO user_data(
   ,null
 );
 
+insert into System_Setting(id, setting_name, setting_desc, setting_value, updated_by, updated_at)
+values(4, 'TIMEOUT_LOGIN_USER', 'Define how many second user must login again', '300', 1, NOW());
+
 -- Table User
 
 CREATE TABLE User

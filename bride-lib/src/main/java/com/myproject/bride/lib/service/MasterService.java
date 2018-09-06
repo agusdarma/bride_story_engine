@@ -1,10 +1,8 @@
 package com.myproject.bride.lib.service;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +20,7 @@ import com.myproject.bride.lib.entity.Carousel;
 import com.myproject.bride.lib.entity.Category;
 import com.myproject.bride.lib.entity.City;
 import com.myproject.bride.lib.entity.Country;
+import com.myproject.bride.lib.entity.SystemSetting;
 import com.myproject.bride.lib.entity.UserData;
 import com.myproject.bride.lib.mapper.BookingDateMapper;
 import com.myproject.bride.lib.mapper.CarouselMapper;
@@ -32,6 +31,7 @@ import com.myproject.bride.lib.mapper.UserDataMapper;
 import com.myproject.bride.lib.mapper.VendorMapper;
 import com.myproject.bride.lib.mapper.VenueMapper;
 import com.myproject.bride.lib.utils.CipherUtil;
+import com.myproject.bride.lib.utils.Constants;
 import com.myproject.bride.lib.utils.WebException;
 
 @Service
@@ -63,6 +63,9 @@ public class MasterService {
 	@Autowired
 	private UserDataMapper userDataMapper;
 	
+	@Autowired
+	private SettingService settingService;
+	
 	public LoginDataVO doLogin(LoginDataVO loginDataVO) throws BrideEngineException {
 		LOG.debug("process doLogin with param " + loginDataVO);
 		UserData userData = userDataMapper.findUserDataByEmail(loginDataVO);
@@ -87,6 +90,8 @@ public class MasterService {
 		int hasil = userDataMapper.updateUserData(userData);
 		LOG.debug(hasil + " row affected ");
 		loginDataVO.setPassword("");
+		SystemSetting setting = settingService.getSettingById(Constants.SETTING_TIMEOUT_LOGIN_USER);
+		loginDataVO.setTimeOutLoginSetting(Integer.parseInt(setting.getSettingValue()));
 		
 		return loginDataVO;
 
