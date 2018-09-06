@@ -86,7 +86,7 @@ public class MasterService {
 		
 		int hasil = userDataMapper.updateUserData(userData);
 		LOG.debug(hasil + " row affected ");
-		
+		loginDataVO.setPassword("");
 		
 		return loginDataVO;
 
