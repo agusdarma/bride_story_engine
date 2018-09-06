@@ -20,6 +20,15 @@
 		where u.email = #{email}
 	</select>
 	
+	<insert id="createUserData" parameterType="UserData" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO user_data 
+    	(email, password)
+    	values (
+    	#{email},
+    	#{password}    	    
+    	)
+	</insert>
+	
 	
 	<update id="updateUserData" parameterType="UserData" >
     	update user_data set     		

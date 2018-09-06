@@ -8,5 +8,7 @@ public interface UserDataMapper {
 	public UserData findUserDataByEmail(LoginDataVO loginDataVO);
 	
 	public int updateUserData(UserData userData);
+	
+	public int createUserData(UserData userData);
 
 }

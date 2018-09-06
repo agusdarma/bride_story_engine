@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.myproject.bride.lib.data.BookingDateVO;
 import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.data.LoginDataVO;
+import com.myproject.bride.lib.data.SignUpDataVO;
 import com.myproject.bride.lib.data.VendorVO;
 import com.myproject.bride.lib.data.VenueParamVO;
 import com.myproject.bride.lib.data.VenueVO;
@@ -65,6 +66,25 @@ public class MasterService {
 	
 	@Autowired
 	private SettingService settingService;
+	
+	public void doSignUp(SignUpDataVO signUpDataVO) throws BrideEngineException {
+		LOG.debug("process doSignUp with param " + signUpDataVO);
+		LoginDataVO loginDataVO = new LoginDataVO();
+		loginDataVO.setEmail(signUpDataVO.getEmail());
+		UserData userData = userDataMapper.findUserDataByEmail(loginDataVO);
+		if(userData != null){	
+			throw new BrideEngineException(WebException.NE_USER_DATA_DUPLICATE);
+		}
+		userData = new UserData();
+		userData.setEmail(signUpDataVO.getEmail());
+		String plainPass = signUpDataVO.getPassword();
+		String encPassword = CipherUtil.passwordDigest(signUpDataVO.getEmail(), plainPass);
+		userData.setPassword(encPassword);
+		LOG.debug("userData with param " + userData);
+		int row = userDataMapper.createUserData(userData);
+		LOG.debug(row + " row affrected ");
+
+	}
 	
 	public LoginDataVO doLogin(LoginDataVO loginDataVO) throws BrideEngineException {
 		LOG.debug("process doLogin with param " + loginDataVO);

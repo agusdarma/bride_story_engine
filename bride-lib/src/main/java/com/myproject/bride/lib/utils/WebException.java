@@ -29,7 +29,7 @@ public class WebException extends Exception {
 	
 	
 	public static final int NE_USER_DATA_INVALID 		= 10101;	// {0} = user code
-	public static final int NE_USER_DATA_INACTIVE 		= 10102;	// {0} = user code
+	public static final int NE_USER_DATA_DUPLICATE 		= 10102;	// {0} = user code
 	public static final int NE_USER_DATA_BLOCKED 		= 10103;	// {0} = user code
 	public static final int NE_USER_DATA_INVALID_PASS	= 10104;	// {0} = user code
 	public static final int NE_USER_DATA_INVALID_ROLE	= 10105;	// {0} = user code
