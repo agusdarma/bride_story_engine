@@ -20,6 +20,7 @@ public class BookingDateVO implements java.io.Serializable {
 	private String handPhone1;
 	private String namaPenanggungJawab2;
 	private String handPhone2;
+	private String userEmailBooking;
 
 	@Override
 	public String toString() {
@@ -57,8 +58,6 @@ public class BookingDateVO implements java.io.Serializable {
 	public void setIdVenue(int idVenue) {
 		this.idVenue = idVenue;
 	}
-
-	
 
 	public long getDateTimeMilisecond() {
 		return dateTimeMilisecond;
@@ -122,6 +121,14 @@ public class BookingDateVO implements java.io.Serializable {
 
 	public void setHandPhone2(String handPhone2) {
 		this.handPhone2 = handPhone2;
+	}
+
+	public String getUserEmailBooking() {
+		return userEmailBooking;
+	}
+
+	public void setUserEmailBooking(String userEmailBooking) {
+		this.userEmailBooking = userEmailBooking;
 	}
 
 }

@@ -405,6 +405,7 @@ CREATE TABLE booking_date
   handPhone1 Varchar(128),
   namaPenanggungJawab2 Varchar(128),
   handPhone2 Varchar(128),
+  userEmailBooking Varchar(128),
  PRIMARY KEY (id)
 );
 -- 1534784400000

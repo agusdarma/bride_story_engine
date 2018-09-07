@@ -10,8 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myproject.bride.lib.data.BookingDateVO;
+import com.myproject.bride.lib.data.BookingParamVO;
 import com.myproject.bride.lib.data.CityParamVO;
 import com.myproject.bride.lib.data.LoginDataVO;
+import com.myproject.bride.lib.data.ResultMyBookingVO;
 import com.myproject.bride.lib.data.SignUpDataVO;
 import com.myproject.bride.lib.data.VendorVO;
 import com.myproject.bride.lib.data.VenueParamVO;
@@ -66,6 +68,13 @@ public class MasterService {
 	
 	@Autowired
 	private SettingService settingService;
+	
+	public List<ResultMyBookingVO> getListMyBooking(BookingParamVO bookingParamVO) throws BrideEngineException {
+		LOG.debug("process getListMyBooking");
+		List<ResultMyBookingVO> listMyBooking = bookingDateMapper.getListMyBooking(bookingParamVO);
+		return listMyBooking;
+
+	}
 	
 	public void doSignUp(SignUpDataVO signUpDataVO) throws BrideEngineException {
 		LOG.debug("process doSignUp with param " + signUpDataVO);

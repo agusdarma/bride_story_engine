@@ -23,6 +23,7 @@
 	<bean id="getListSimilarVenue" class="com.myproject.bride.trx.logic.trx.GetListSimilarVenue"/>
 	<bean id="loginProcess" class="com.myproject.bride.trx.logic.trx.LoginProcess"/>
 	<bean id="signUpProcess" class="com.myproject.bride.trx.logic.trx.SignUpProcess"/>
+	<bean id="getListMyBooking" class="com.myproject.bride.trx.logic.trx.GetListMyBooking"/>
 	
 	
 </beans>

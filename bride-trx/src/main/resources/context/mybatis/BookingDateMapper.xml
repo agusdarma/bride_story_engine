@@ -14,7 +14,8 @@
 
 	<insert id="createBookingDate" parameterType="BookingDateVO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO booking_date 
-    	(bookingDate, isDay, isNight, idVenue,bookingOn,namaPernikahan,namaPenanggungJawab1,handPhone1,namaPenanggungJawab2,handPhone2)
+    	(bookingDate, isDay, isNight, idVenue,bookingOn,namaPernikahan,namaPenanggungJawab1,handPhone1,namaPenanggungJawab2,handPhone2
+    	,userEmailBooking)
     	values (
     	#{dateTimeMilisecond},
     	#{isDay},
@@ -25,7 +26,8 @@
     	#{namaPenanggungJawab1},
     	#{handPhone1},
     	#{namaPenanggungJawab2},
-    	#{handPhone2}    	
+    	#{handPhone2},
+    	#{userEmailBooking}    	
     	)
 	</insert>
 	
@@ -40,6 +42,27 @@
 		select bd.id as id, bd.bookingDate as bookingDate, bd.isDay as isDay, bd.isNight as isNight, bd.idVenue as idVenue		
 		from booking_date bd
 		where bd.bookingDate=#{dateTimeMilisecond} and bd.idVenue =#{idVenue} 		
+	</select>
+	
+	<resultMap id="ResultMyBooking" type="ResultMyBookingVO">		
+		<result property="bookingDateVO.namaPernikahan" column="namaPernikahan" />
+		<result property="bookingDateVO.namaPenanggungJawab1" column="namaPenanggungJawab1" />
+		<result property="bookingDateVO.handPhone1" column="handPhone1" />
+		<result property="bookingDateVO.namaPenanggungJawab2" column="namaPenanggungJawab2" />
+		<result property="bookingDateVO.handPhone2" column="handPhone2" />
+		<result property="bookingDateVO.userEmailBooking" column="userEmailBooking" />	
+		
+		<result property="venueVO.venue.titleVenue" column="titleVenue" />		
+	
+		
+	</resultMap>
+	
+	<select id="getListMyBooking" parameterType="BookingParamVO" resultMap="ResultMyBooking">
+		select b.namaPernikahan as namaPernikahan ,b.namaPenanggungJawab1 as namaPenanggungJawab1,
+		b.handPhone1 as handPhone1, b.namaPenanggungJawab2 as namaPenanggungJawab2,
+		b.handPhone2 as handPhone2, v.titleVenue as titleVenue
+		from booking_date b inner join venue v on b.idVenue = v.id
+		where b.userEmailBooking = #{emailUserLogin}
 	</select>
 
 </mapper>
