@@ -51,6 +51,8 @@
 		<result property="bookingDateVO.namaPenanggungJawab2" column="namaPenanggungJawab2" />
 		<result property="bookingDateVO.handPhone2" column="handPhone2" />
 		<result property="bookingDateVO.userEmailBooking" column="userEmailBooking" />	
+		<result property="bookingDateVO.dateTimeMilisecond" column="bookingDate" />
+		
 		
 		<result property="venueVO.venue.titleVenue" column="titleVenue" />		
 	
@@ -60,9 +62,9 @@
 	<select id="getListMyBooking" parameterType="BookingParamVO" resultMap="ResultMyBooking">
 		select b.namaPernikahan as namaPernikahan ,b.namaPenanggungJawab1 as namaPenanggungJawab1,
 		b.handPhone1 as handPhone1, b.namaPenanggungJawab2 as namaPenanggungJawab2,
-		b.handPhone2 as handPhone2, v.titleVenue as titleVenue
+		b.handPhone2 as handPhone2, v.titleVenue as titleVenue,b.bookingDate as bookingDate
 		from booking_date b inner join venue v on b.idVenue = v.id
-		where b.userEmailBooking = #{emailUserLogin}
+		where b.userEmailBooking = #{email}
 	</select>
 
 </mapper>
