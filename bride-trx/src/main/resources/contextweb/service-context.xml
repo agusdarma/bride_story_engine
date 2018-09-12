@@ -64,6 +64,7 @@
 		        <entry key="/loginProcess" value-ref="loginProcess"></entry>
 		        <entry key="/signUpProcess" value-ref="signUpProcess"></entry>
 		        <entry key="/getListMyBooking" value-ref="getListMyBooking"></entry>
+		        <entry key="/uploadImages" value-ref="uploadImages"></entry>
 		        
 		        
 		        
