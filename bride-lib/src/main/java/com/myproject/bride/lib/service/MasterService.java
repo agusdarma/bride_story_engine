@@ -86,6 +86,11 @@ public class MasterService {
 		} catch (IOException e) {
 			throw new BrideEngineException(WebException.NE_UPLOAD_IMAGE_FAILED);
 		}
+		BookingDate bookingDate = bookingDateMapper.findBookingDateById(confirmDataVO.getBookingId());
+		if(bookingDate ==null){
+			throw new BrideEngineException(WebException.NE_BOOKING_STATUS_INVALID);
+		}
+		
 		Date now = new Date();
 		BookingDateVO bookingDateVO = new BookingDateVO();
 		bookingDateVO.setId(confirmDataVO.getBookingId());

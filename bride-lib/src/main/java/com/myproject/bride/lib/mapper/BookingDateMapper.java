@@ -17,6 +17,8 @@ public interface BookingDateMapper {
 	
 	public BookingDate findBookingDateByParam(BookingDateVO bookingDateVO);
 	
+	public BookingDate findBookingDateById(int bookingId);
+	
 	public List<ResultMyBookingVO> getListMyBooking(BookingParamVO bookingParamVO);
 	
 }

@@ -58,6 +58,12 @@
 		where bd.bookingDate=#{dateTimeMilisecond} and bd.idVenue =#{idVenue} 		
 	</select>
 	
+	<select id="findBookingDateById" resultType="BookingDate" parameterType="java.lang.Integer">
+		select bd.id as id, bd.bookingDate as bookingDate, bd.isDay as isDay, bd.isNight as isNight, bd.idVenue as idVenue		
+		from booking_date bd
+		where bd.id=#{value} and bd.status = 0 		
+	</select>
+	
 	<resultMap id="ResultMyBooking" type="ResultMyBookingVO">		
 		<result property="bookingDateVO.namaPernikahan" column="namaPernikahan" />
 		<result property="bookingDateVO.namaPenanggungJawab1" column="namaPenanggungJawab1" />
