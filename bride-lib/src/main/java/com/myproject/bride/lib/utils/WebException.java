@@ -39,6 +39,7 @@ public class WebException extends Exception {
 	public static final int NE_USER_DATA_INVALID_OLD_PASS	= 10109;	// {0} = user code
 	public static final int NE_DATA_NOT_ALLOW_SAME_WITH	= 10110;	// {0} = data 1, {1} = data 2
 	public static final int NE_DATA_REK_DUPLICATE		= 10111; //{0} = no rek
+	public static final int NE_UPLOAD_IMAGE_FAILED 		= 10103;
 
 	//for commons error
 	public static final int NE_PASSWORD_DIFFERENT		= 20000;  // newPassword != confirmPassword

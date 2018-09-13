@@ -1,8 +1,12 @@
 package com.myproject.bride.lib.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.myproject.bride.lib.data.BookingDateVO;
 import com.myproject.bride.lib.data.BookingParamVO;
 import com.myproject.bride.lib.data.CityParamVO;
+import com.myproject.bride.lib.data.ConfirmDataVO;
 import com.myproject.bride.lib.data.LoginDataVO;
 import com.myproject.bride.lib.data.ResultMyBookingVO;
 import com.myproject.bride.lib.data.SignUpDataVO;
@@ -68,6 +73,31 @@ public class MasterService {
 	
 	@Autowired
 	private SettingService settingService;
+	
+	@Autowired
+	private ImagesService imagesService;
+	
+	public void confirmBooking(ConfirmDataVO confirmDataVO) throws BrideEngineException {
+		LOG.debug("process confirmBooking with param " + confirmDataVO);
+		String fileName = "";
+		try {
+			// upload file first
+			fileName = imagesService.confirmBookingProcess(confirmDataVO);
+		} catch (IOException e) {
+			throw new BrideEngineException(WebException.NE_UPLOAD_IMAGE_FAILED);
+		}
+		Date now = new Date();
+		BookingDateVO bookingDateVO = new BookingDateVO();
+		bookingDateVO.setId(confirmDataVO.getBookingId());
+		bookingDateVO.setStatus(Constants.STATUS_CONFIRMED);
+		bookingDateVO.setUpdatedOn(now);
+		bookingDateVO.setUpdatedBy(confirmDataVO.getEmail());
+		bookingDateVO.setFileNameImage(fileName);
+		// update status booking
+		bookingDateMapper.updateStatusBookingDate(bookingDateVO);
+		
+		
+	}
 	
 	public List<ResultMyBookingVO> getListMyBooking(BookingParamVO bookingParamVO) throws BrideEngineException {
 		LOG.debug("process getListMyBooking");
@@ -129,6 +159,8 @@ public class MasterService {
 	@Transactional
 	public void createUpdateBookingDate(BookingDateVO bookingDateVO) throws BrideEngineException {
 		LOG.debug("createUpdateBookingDate : " + bookingDateVO);
+		Date now = new Date();		
+	
 		bookingDateVO.setIsDay(0);
 		bookingDateVO.setIsNight(0);
 		if(1 == bookingDateVO.getTime()){
@@ -151,9 +183,15 @@ public class MasterService {
 			if(booVo.getIsNight() == 1){
 				bookingDateVO.setIsNight(1);
 			}
+			bookingDateVO.setUpdatedOn(now);
+			bookingDateVO.setUpdatedBy(bookingDateVO.getUserEmailBooking());
 			result = bookingDateMapper.updateBookingDate(bookingDateVO);
 			LOG.debug("updateBookingDate success with param : " + bookingDateVO);
 		}else{
+			bookingDateVO.setCreatedOn(now);
+			bookingDateVO.setUpdatedOn(now);
+			bookingDateVO.setCreatedBy(bookingDateVO.getUserEmailBooking());
+			bookingDateVO.setUpdatedBy(bookingDateVO.getUserEmailBooking());
 			result = bookingDateMapper.createBookingDate(bookingDateVO);
 			LOG.debug("createBookingDate success with param : " + bookingDateVO);
 		}

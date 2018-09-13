@@ -89,4 +89,7 @@ public class Constants {
 	
 	public static final String KEY_IMAGE_NAME				= "n";
 	
+	public static final int STATUS_CONFIRMED						= 1	;
+	public static final int STATUS_FINISH							= 2	;
+	
 }

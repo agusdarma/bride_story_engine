@@ -15,7 +15,7 @@
 	<insert id="createBookingDate" parameterType="BookingDateVO" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO booking_date 
     	(bookingDate, isDay, isNight, idVenue,bookingOn,namaPernikahan,namaPenanggungJawab1,handPhone1,namaPenanggungJawab2,handPhone2
-    	,userEmailBooking)
+    	,userEmailBooking,status,createdOn,createdBy,updatedOn,updatedBy)
     	values (
     	#{dateTimeMilisecond},
     	#{isDay},
@@ -27,9 +27,23 @@
     	#{handPhone1},
     	#{namaPenanggungJawab2},
     	#{handPhone2},
-    	#{userEmailBooking}    	
+    	#{userEmailBooking},
+    	#{status},
+    	#{createdOn},
+    	#{createdBy},
+    	#{updatedOn},
+    	#{updatedBy}    	
     	)
 	</insert>
+	
+	<update id="updateStatusBookingDate" parameterType="BookingDateVO" >
+    	update booking_date set     		
+    		status=#{status},
+    		updatedOn=#{updatedOn},
+    		updatedBy=#{updatedBy},
+    		fileNameImage=#{fileNameImage}
+    	where id=#{id}
+    </update>
 	
 	<update id="updateBookingDate" parameterType="BookingDateVO" >
     	update booking_date set     		
@@ -52,6 +66,11 @@
 		<result property="bookingDateVO.handPhone2" column="handPhone2" />
 		<result property="bookingDateVO.userEmailBooking" column="userEmailBooking" />	
 		<result property="bookingDateVO.dateTimeMilisecond" column="bookingDate" />
+		<result property="bookingDateVO.id" column="id" />
+		
+		<result property="bookingDateVO.status" column="status" />
+		<result property="bookingDateVO.fileNameImage" column="fileNameImage" />		
+	
 		
 		
 		<result property="venueVO.venue.titleVenue" column="titleVenue" />		
@@ -60,9 +79,10 @@
 	</resultMap>
 	
 	<select id="getListMyBooking" parameterType="BookingParamVO" resultMap="ResultMyBooking">
-		select b.namaPernikahan as namaPernikahan ,b.namaPenanggungJawab1 as namaPenanggungJawab1,
+		select b.id as id, b.namaPernikahan as namaPernikahan ,b.namaPenanggungJawab1 as namaPenanggungJawab1,
 		b.handPhone1 as handPhone1, b.namaPenanggungJawab2 as namaPenanggungJawab2,
-		b.handPhone2 as handPhone2, v.titleVenue as titleVenue,b.bookingDate as bookingDate
+		b.handPhone2 as handPhone2, v.titleVenue as titleVenue,b.bookingDate as bookingDate, b.status as status,
+		b.fileNameImage as fileNameImage
 		from booking_date b inner join venue v on b.idVenue = v.id
 		where b.userEmailBooking = #{email}
 	</select>

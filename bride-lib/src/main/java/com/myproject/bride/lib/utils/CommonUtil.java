@@ -20,6 +20,7 @@ public class CommonUtil {
 	private static NumberFormat nfNoDecimal = new DecimalFormat("#,##0");
 	private static NumberFormat nfPlain = new DecimalFormat("###0");
 	private static SimpleDateFormat dfYear = new SimpleDateFormat("yyyy");
+	private static SimpleDateFormat dfFormatFileName = new SimpleDateFormat("yyyyMMdd");
 	public static NumberFormat nf = new DecimalFormat("#,###");
 	public static NumberFormat nfx = new DecimalFormat("####.##");
 	private static Random r = new Random();
@@ -123,6 +124,10 @@ public class CommonUtil {
 	
 	public static String displayYear(Date dateTime){
 		return dfYear.format(dateTime);
+	}
+	
+	public static String displayFileName(Date dateTime){
+		return dfFormatFileName.format(dateTime);
 	}
 	
 	public static String generateNumeric(int length) {

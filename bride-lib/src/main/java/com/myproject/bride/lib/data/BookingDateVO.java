@@ -21,6 +21,13 @@ public class BookingDateVO implements java.io.Serializable {
 	private String namaPenanggungJawab2;
 	private String handPhone2;
 	private String userEmailBooking;
+	private int status;
+	private Date createdOn;
+	private String createdBy;
+	private Date updatedOn;
+	private String updatedBy;
+	private String fileNameImage;
+		
 
 	@Override
 	public String toString() {
@@ -129,6 +136,54 @@ public class BookingDateVO implements java.io.Serializable {
 
 	public void setUserEmailBooking(String userEmailBooking) {
 		this.userEmailBooking = userEmailBooking;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public String getFileNameImage() {
+		return fileNameImage;
+	}
+
+	public void setFileNameImage(String fileNameImage) {
+		this.fileNameImage = fileNameImage;
 	}
 
 }

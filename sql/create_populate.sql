@@ -406,6 +406,12 @@ CREATE TABLE booking_date
   namaPenanggungJawab2 Varchar(128),
   handPhone2 Varchar(128),
   userEmailBooking Varchar(128),
+  status Int NOT NULL,
+  createdOn Datetime NOT NULL,
+  createdBy Varchar(128),
+  updatedOn Datetime NOT NULL,
+  updatedBy Varchar(128),
+  fileNameImage Varchar(128),
  PRIMARY KEY (id)
 );
 -- 1534784400000
