@@ -16,16 +16,17 @@
 
 	<select id="findUserDataByEmail" parameterType="LoginDataVO" resultType="UserData">
 		select u.id as id, u.email as email, u.`password` as password, u.sessionData as sessionData
-		, u.sessionDate as sessionDate, u.sessionOn as sessionOn from user_data u
+		, u.sessionDate as sessionDate, u.sessionOn as sessionOn, u.userType as userType from user_data u
 		where u.email = #{email}
 	</select>
 	
 	<insert id="createUserData" parameterType="UserData" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO user_data 
-    	(email, password)
+    	(email, password,userType)
     	values (
     	#{email},
-    	#{password}    	    
+    	#{password},
+    	#{userType}   	    
     	)
 	</insert>
 	

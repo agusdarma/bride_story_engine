@@ -13,6 +13,7 @@ public class UserData implements Serializable {
 	private String sessionData;
 	private long sessionDate;
 	private Date sessionOn;
+	private int userType;
 
 	@Override
 	public String toString() {
@@ -65,6 +66,14 @@ public class UserData implements Serializable {
 
 	public void setSessionOn(Date sessionOn) {
 		this.sessionOn = sessionOn;
+	}
+
+	public int getUserType() {
+		return userType;
+	}
+
+	public void setUserType(int userType) {
+		this.userType = userType;
 	}
 
 }

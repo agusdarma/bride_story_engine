@@ -124,6 +124,7 @@ public class MasterService {
 		String plainPass = signUpDataVO.getPassword();
 		String encPassword = CipherUtil.passwordDigest(signUpDataVO.getEmail(), plainPass);
 		userData.setPassword(encPassword);
+		userData.setUserType(signUpDataVO.getUserType());
 		LOG.debug("userData with param " + userData);
 		int row = userDataMapper.createUserData(userData);
 		LOG.debug(row + " row affrected ");

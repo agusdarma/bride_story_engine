@@ -456,6 +456,7 @@ CREATE TABLE user_data
   sessionData Varchar(80),
   sessionDate bigint,
   sessionOn Datetime,
+  userType int NOT NULL,
  PRIMARY KEY (id)
 );
 

@@ -7,6 +7,7 @@ public class SignUpDataVO implements java.io.Serializable {
 
 	private String email;
 	private String password;
+	private int userType;
 
 	@Override
 	public String toString() {
@@ -27,6 +28,14 @@ public class SignUpDataVO implements java.io.Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getUserType() {
+		return userType;
+	}
+
+	public void setUserType(int userType) {
+		this.userType = userType;
 	}
 
 }
