@@ -10,6 +10,7 @@ public class LoginDataVO implements java.io.Serializable {
 	private String sessionData;
 	private long sessionDate;
 	private int timeOutLoginSetting;	
+	private int userType;
 
 	@Override
 	public String toString() {
@@ -54,6 +55,14 @@ public class LoginDataVO implements java.io.Serializable {
 
 	public void setTimeOutLoginSetting(int timeOutLoginSetting) {
 		this.timeOutLoginSetting = timeOutLoginSetting;
+	}
+
+	public int getUserType() {
+		return userType;
+	}
+
+	public void setUserType(int userType) {
+		this.userType = userType;
 	}
 
 	
