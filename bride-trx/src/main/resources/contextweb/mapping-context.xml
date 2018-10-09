@@ -26,6 +26,7 @@
 	<bean id="signUpProcess" class="com.myproject.bride.trx.logic.trx.SignUpProcess"/>
 	<bean id="getListMyBooking" class="com.myproject.bride.trx.logic.trx.GetListMyBooking"/>
 	<bean id="uploadImages" class="com.myproject.bride.trx.logic.trx.UploadImages"/>
+	<bean id="getListPaymentByUser" class="com.myproject.bride.trx.logic.trx.GetListPaymentByUser"/>
 	
 	
 </beans>

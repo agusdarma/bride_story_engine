@@ -92,5 +92,17 @@
 		from booking_date b inner join venue v on b.idVenue = v.id
 		where b.userEmailBooking = #{email}
 	</select>
+	
+	<select id="getListPaymentByUser" parameterType="LoginDataVO" resultMap="ResultMyBooking">
+		select b.id as id, b.namaPernikahan as namaPernikahan ,b.namaPenanggungJawab1 as namaPenanggungJawab1,
+		b.handPhone1 as handPhone1, b.namaPenanggungJawab2 as namaPenanggungJawab2,
+		b.handPhone2 as handPhone2, v.titleVenue as titleVenue,b.bookingDate as bookingDate, b.status as status,
+		b.fileNameImage as fileNameImage
+		from booking_date b 
+		inner join venue v on b.idVenue = v.id
+		inner join user_data ud on ud.id = v.idUserData
+		where b.`status` = 2 
+		and ud.email = #{email}
+	</select>
 
 </mapper>

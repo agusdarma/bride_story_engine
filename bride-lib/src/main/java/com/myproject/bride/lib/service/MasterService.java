@@ -227,6 +227,13 @@ public class MasterService {
 
 	}
 	
+	public List<ResultMyBookingVO> getListPaymentByUser(LoginDataVO loginDataVO) throws BrideEngineException {
+		LOG.debug("process getListPaymentByUser");
+		List<ResultMyBookingVO> listPayments = bookingDateMapper.getListPaymentByUser(loginDataVO);
+		return listPayments;
+
+	}
+	
 	public List<VenueVO> GetVenueById(VenueParamVO venueParamVO) throws BrideEngineException {
 		LOG.debug("process getVenueById");
 		List<VenueVO> listVenues = venueMapper.getVenueById(venueParamVO);
