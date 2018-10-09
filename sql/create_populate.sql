@@ -326,6 +326,7 @@ CREATE TABLE venue
   luasTanah Varchar(128),
   hargaVenue Varchar(128),
   idCity Int,
+  idUserData Int,
   status Int,
   latitude double,
   longitude double,
@@ -345,6 +346,7 @@ INSERT INTO venue(
   ,status
   ,latitude
   ,longitude
+  ,url4d
 ) VALUES (
   '3.jpg'
   ,'Balai Samudra'

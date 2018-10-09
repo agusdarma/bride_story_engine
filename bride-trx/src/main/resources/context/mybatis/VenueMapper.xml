@@ -23,9 +23,11 @@
 		<result property="venue.luasTanah" column="luasTanah" />
 		<result property="venue.hargaVenue" column="hargaVenue" />
 		<result property="venue.idCity" column="idCity" />
+		<result property="venue.idUserData" column="idUserData" />
 		<result property="venue.locationVenue" column="locationVenue" />
 		<result property="venue.latitude" column="latitude" />
 		<result property="venue.longitude" column="longitude" />
+		<result property="venue.url4d" column="url4d" />
 	
 		<collection property="listBookingDates" ofType="BookingDate">			
 			<result property="id" column="idBooking" />
@@ -47,6 +49,22 @@
 		inner join city c on v.idCity = c.id
 		left join booking_date bd on bd.idVenue = v.id
 		where v.`status` = 1 and v.idCity = #{cityId}		
+		order by v.titleVenue asc
+	</select>
+	
+	<select id="getListVenueByUser" parameterType="VenueParamVO" resultMap="VenueResult">
+		select v.id as id, v.linkImageVenue as linkImageVenue, v.titleVenue as titleVenue,
+		v.addressVenue as addressVenue,v.capacityVisitor as capacityVisitor,v.capacityParkir as capacityParkir,
+		v.luasBangunan as luasBangunan,v.luasTanah as luasTanah,v.hargaVenue as hargaVenue,
+		v.latitude as latitude, v.longitude as longitude, v.url4d as url4d,
+		c.id as idCity, c.city_name as locationVenue,ud.id as idUserData,
+		bd.id as idBooking ,bd.bookingDate as bookingDate,bd.isDay as isDay,bd.isNight as isNight,bd.idVenue as idVenue	
+		from venue v 
+		inner join city c on v.idCity = c.id
+		inner join user_data ud on ud.id = v.idUserData
+		left join booking_date bd on bd.idVenue = v.id
+		where v.`status` = 1 
+		and ud.email = #{email}	
 		order by v.titleVenue asc
 	</select>
 	

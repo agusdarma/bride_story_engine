@@ -65,6 +65,7 @@
 		        <entry key="/signUpProcess" value-ref="signUpProcess"></entry>
 		        <entry key="/getListMyBooking" value-ref="getListMyBooking"></entry>
 		        <entry key="/uploadImages" value-ref="uploadImages"></entry>
+		        <entry key="/getListVenueByUser" value-ref="getListVenueByUser"></entry>
 		        
 		        
 		        

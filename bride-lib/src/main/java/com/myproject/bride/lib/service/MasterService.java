@@ -220,6 +220,13 @@ public class MasterService {
 
 	}
 	
+	public List<VenueVO> getListVenueByUser(VenueParamVO venueParamVO) throws BrideEngineException {
+		LOG.debug("process getListVenueByUser");
+		List<VenueVO> listVenues = venueMapper.getListVenueByUser(venueParamVO);
+		return listVenues;
+
+	}
+	
 	public List<VenueVO> GetVenueById(VenueParamVO venueParamVO) throws BrideEngineException {
 		LOG.debug("process getVenueById");
 		List<VenueVO> listVenues = venueMapper.getVenueById(venueParamVO);

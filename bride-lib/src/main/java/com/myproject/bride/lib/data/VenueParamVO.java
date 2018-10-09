@@ -2,7 +2,7 @@ package com.myproject.bride.lib.data;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
-public class VenueParamVO implements java.io.Serializable {
+public class VenueParamVO extends LoginDataVO implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int categoryId;

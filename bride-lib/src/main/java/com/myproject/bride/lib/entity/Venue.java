@@ -16,9 +16,11 @@ public class Venue implements Serializable {
 	private String luasTanah;
 	private String hargaVenue;
 	private int idCity;
+	private int idUserData;	
 	private double latitude;
 	private double longitude;
 	private String locationVenue;
+	private String url4d;
 
 	@Override
 	public String toString() {
@@ -127,6 +129,22 @@ public class Venue implements Serializable {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public int getIdUserData() {
+		return idUserData;
+	}
+
+	public void setIdUserData(int idUserData) {
+		this.idUserData = idUserData;
+	}
+
+	public String getUrl4d() {
+		return url4d;
+	}
+
+	public void setUrl4d(String url4d) {
+		this.url4d = url4d;
 	}
 
 }
